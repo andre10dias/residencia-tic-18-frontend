@@ -1,0 +1,116 @@
+body {
+    background-color: #e9f2f9;
+}
+
+h3, h5 {
+    margin-bottom: 0px;
+}
+
+h5 {
+    margin-top: 2px;
+}
+
+p {
+    margin-top: 0px;
+}
+
+.topo {
+    background-color: #9cc4e4;
+    line-height: 6rem;
+}
+
+.topo, .header {
+    text-align: center;
+}
+
+.header {
+    border-bottom: 3px solid #3a89c9;
+}
+
+.bl1 {
+    margin-bottom: 5px;
+}
+
+.bl2 {
+    margin-bottom: 10px;
+}
+
+.conteudo {
+    border: 1px solid #3a89c9;
+    background-color: #FFF;
+    padding: 0px 5px;
+    min-height: 250px;
+}
+
+ul {
+    padding-left: 0px;
+    margin-top: 2px;
+}
+
+li {
+    list-style-type: none;
+    margin-bottom: 5px; 
+    text-align: left;
+}
+
+.menu {
+    display: inline-block;
+    margin-right: 5px;
+    text-align: left;
+    width: 1fr;
+    vertical-align: top;
+}
+
+.noticias {
+    display: inline-block;
+    margin-right: 5px;
+    text-align: left;
+    width: 1fr;
+    vertical-align: top;
+}
+
+.destaque {
+    display: inline-block;
+    margin-right: 0px;
+    width: 20%;
+}
+
+.destaque > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.servicos {
+    display: inline-block;
+    margin-right: 5px;
+    text-align: left;
+    width: 50%;
+    vertical-align: top;
+}
+
+.resultados {
+    display: inline-block;
+    margin-right: 5px;
+    text-align: left;
+    width: 45%;
+    vertical-align: top;
+}
+
+img {
+    position: absolute;
+    margin: 10px;
+    width: 100px;    
+    height: 100px;
+}
+
+.footer {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
