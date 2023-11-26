@@ -3,24 +3,19 @@
 }
 
 img {
-    width: 50%;
-    height: 30%;
+    width: 70%;
+    height: 20%;
     border-radius: 10px;
     margin: 10px;
 }
 
 ul {
     list-style-type: "\2713";
+    grid-column: 2;
 }
 
 li {
     text-align: left;
-}
-
-.container-destinos {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
 }
 
 .roteiro-destino {
@@ -33,13 +28,13 @@ li {
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    width: 300px;
-    height: 460px;
+    width: 180px;
+    height: 430px;
 }
 
 .roteiro-incluso {
-    align-items: center;
-    justify-content: center
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
 }
 
 .roteiro-preco {
@@ -65,4 +60,34 @@ li {
     margin-top: 10px;
     margin-bottom: 10px;
     color: #fef9f6;
+}
+
+@media (min-width: 1200px) {
+    .container-destinos {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
+
+@media (min-width: 1350px) {
+    .container-destinos {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container-destinos {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-evenly;
+    }
 }
