@@ -35,14 +35,14 @@ p {
 @media (min-width: 500px) {
     .container {
         display: grid;
-        /* grid-template-columns: 1fr 1fr 20%; */
         grid-template-rows: 1fr 3fr 3fr 195px;
         gap: 10px;
-        background-color: yellowgreen;
+        background-color: #f4f4f4;
     }
 
     .header {
-        background-color: red;
+        background-color: #015874;
+        color: #0084c3;
         display: grid;
         grid-column-start: 1;
         grid-column-end: 4;
@@ -54,14 +54,12 @@ p {
         display: grid;
         grid-template-columns: 1fr 1fr 20%;
         column-gap: 5px;
-        background-color: green;
+        background-color: #f4f4f4;
         grid-column-start: 1;
         grid-column-end: 4;
         position: relative;
         top: 10px;
-        /* grid-row: 2/span 2; */
         grid-row-start: 2;
-        /* grid-row-end: 2; */
     }
 
     .menu {
@@ -113,7 +111,7 @@ p {
         display: grid;
         grid-template-columns: 1fr 400px;
         column-gap: 5px;
-        background-color: brown;
+        background-color: #f4f4f4;
         grid-column-start: 1;
         grid-column-end: 4;
         grid-row-start: 3;
@@ -149,11 +147,12 @@ p {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto 225px;
         gap: 10px;
-        background-color: red;
+        background-color: #f4f4f4;
     }
 
     .header {
-        background-color: blue;
+        background-color: #015874;
+        color: #0084c3;
         display: grid;
         grid-column-start: 1;
         grid-column-end: 4;
@@ -164,9 +163,8 @@ p {
     .block-1 {
         display: grid;
         grid-template-columns: 1fr;
-        /* grid-template-rows: repeat(3, 1fr); */
         row-gap: 5px;
-        background-color: hotpink;
+        background-color: #f4f4f4;
         grid-column-start: 1;
         grid-column-end: 4;
         position: relative;
@@ -191,11 +189,6 @@ p {
 
     .destaque {
         background-color: yellow;
-        /* display: grid; */
-        /* grid-template-rows: 30px 410px; */
-        /* grid-row: 3; */
-        /* align-items: center; */
-        /* justify-items: center; */
     }
 
     .titulo {
@@ -210,9 +203,6 @@ p {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 10px;
-        /* display: inline-block;
-        align-items: center;
-        justify-items: center; */
         margin: 10px;
     }
 
@@ -232,7 +222,7 @@ p {
     .block-2 {
         display: grid;
         row-gap: 5px;
-        background-color: black;
+        background-color: #f4f4f4;
         grid-column-start: 1;
         grid-column-end: 4;
         grid-row-start: 3;
@@ -243,7 +233,6 @@ p {
 
     .servicos {
         background-color: pink;
-        /* grid-column: 1; */
     }
 
     .resultados {
