@@ -80,6 +80,16 @@ li {
         align-items: center;
         justify-content: space-evenly;
     }
+
+    .roteiros-viagens {
+        background-color: #e5d4ff;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        width: 180px;
+        height: 430px;
+        max-width: 200px;
+    }
 }
 
 @media (max-width: 1200px) {
