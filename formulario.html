@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastrar novo pacote</title>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form id="form">
+        <label for="imagemURL">URL da Imagem:</label>
+        <input type="url" id="imagemURL" placeholder="Insira a URL da imagem" required>
+    
+        <label for="destino">Destino:</label>
+        <input type="text" id="destino" placeholder="Informe o destino" required>
+    
+        <label for="roteiro">Roteiro:</label>
+        <input type="text" id="roteiro" placeholder="Informe o roteiro" required>
+        
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" placeholder="Informe o valor do pacote" required>
+        
+        <label for="observacao">Observação:</label>
+        <input type="text" id="observacao" required>
+    
+        <label for="parcelamento">Parcelamento:</label>
+        <input type="text" id="parcelamento">
+    
+        <button type="button" onclick="inserirPacote()">Inserir</button>
+    </form>
+    
+    </br><hr class="esconder"></br>
+    <div class="container-destinos">
+        <!-- Aqui serão inseridos os itens do pacote turístico -->
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
