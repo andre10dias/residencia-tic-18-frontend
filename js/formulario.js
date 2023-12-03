@@ -1,34 +1,3 @@
-let container = document.querySelector('.container-destinos');
-let roteiroViagens = container.querySelectorAll('.roteiros-viagens');
-
-for (let i = 0; i < roteiroViagens.length; i++) {
-    let comprar = roteiroViagens[i].querySelector('.roteiro-comprar');
-
-    comprar.addEventListener('click', function() {
-        let destino = roteiroViagens[i].querySelector('.roteiro-destino').innerHTML;
-        let preco = roteiroViagens[i].querySelector('.roteiro-preco').innerHTML;
-        let obs = roteiroViagens[i].querySelector('.roteiro-obs').innerHTML;
-        let parcelamento = roteiroViagens[i].querySelector('.roteiro-parcelamento').innerHTML;
-        
-        let roteiro = roteiroViagens[i].querySelector('.roteiro-incluso');
-        let listaLi = roteiro.querySelectorAll('li');
-        let listaRoteiros = [];
-        for (let j = 0; j < listaLi.length; j++) {
-            listaRoteiros.push(listaLi[j].innerHTML);
-        }
-
-        let pacoteTuristico = {
-            destino: destino,
-            roteiro: listaRoteiros,
-            preco: preco,
-            obs: obs,
-            parcelamento: parcelamento
-        };
-    
-        console.log(JSON.stringify(pacoteTuristico));
-    });
-}
-
 function montarTag(tag, classe, texto) {
     let tagx = document.createElement(tag);
 
@@ -58,12 +27,63 @@ function montarTagUlComLi(qtdeLi, listaTextoLi) {
     return ul;
 }
 
+function montaTr(descricaoRoteiro) {
+    let tr = montarTag('tr', '', '');
+    let tdDescricao = montarTag('td', '', descricaoRoteiro);
+    let tdBtnExcluir = montarTag('td', 'btn-excluir-roteiro', '');
+    let btn = montarTag('button', 'btn-excluir', 'Excluir');
+
+    tdBtnExcluir.appendChild(btn);
+
+    tr.appendChild(tdDescricao);
+    tr.appendChild(tdBtnExcluir);
+
+    return tr;
+}
+
+function exibirTabela() {
+    tabela = document.querySelector('#tbl-roteiros');
+    tabela.classList.remove('esconder');
+}
+
+function adicionarRoteiro(descricaoRoteiro) {
+    let tbody = document.querySelector('#tabela-roteiros');
+    let tr = montaTr(descricaoRoteiro);
+
+    tbody.appendChild(tr);
+    exibirTabela();
+}
+
+let botaoAdicionar = document.querySelector("#add-destino");
+botaoAdicionar.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    let roteiro = document.querySelector("#roteiro").value;
+    if (roteiro != ''.trim()) {
+        adicionarRoteiro(roteiro);
+        document.querySelector("#roteiro").value = '';
+    }
+});
+
+function retornaDadosTabelaRoteiros() {
+    let tbody = document.querySelector('#tabela-roteiros');
+    let tr = tbody.querySelectorAll('tr');
+
+    let listaRoteiros = [];
+    for (let i = 0; i < tr.length; i++) {
+        let roteiro = tr[i].querySelector('td').innerHTML;
+        listaRoteiros.push(roteiro);
+    }
+
+    return listaRoteiros;
+}
+
 function retornarDadosForm() {
     let map = new Map();
 
     map.set('imagemURL', document.querySelector('#imagemURL').value);
     map.set('destino', document.querySelector('#destino').value);
-    map.set('roteiro', document.querySelector('#roteiro').value);
+    map.set('listaRoteiros', retornaDadosTabelaRoteiros());
     map.set('preco', document.querySelector('#preco').value);
     map.set('observacao', document.querySelector('#observacao').value);
     map.set('parcelamento', document.querySelector('#parcelamento').value);
@@ -76,9 +96,11 @@ function retornarTagsDestinos() {
     let listaTags = [];
 
     let divRoteiroIncluso = montarTag('div', 'roteiro-incluso', '');
-    let ul = montarTagUlComLi(dadosForm.get('roteiro').length, dadosForm.get('roteiro'))
-    divRoteiroIncluso.appendChild(ul);
+    let listaRoteiros = dadosForm.get('listaRoteiros');
 
+    let ul = montarTagUlComLi(listaRoteiros.length, listaRoteiros)
+    divRoteiroIncluso.appendChild(ul);
+    
     let img = montarTagImg('postal', dadosForm.get('imagemURL'));
     let destino = montarTag('div', 'roteiro-destino', dadosForm.get('destino'));
     let preco = montarTag('div', 'roteiro-preco', dadosForm.get('preco'));
@@ -99,12 +121,14 @@ function retornarTagsDestinos() {
 
 function inserirPacote() {
     let listaTags = retornarTagsDestinos();
+    let roteiros = montarTag('div', 'roteiros-viagens', '');
 
     document.querySelector('hr').classList.remove('esconder');  
 
     for (let i = 0; i < listaTags.length; i++) {
-        document.querySelector('.container-destinos').appendChild(listaTags[i]);
+        roteiros.appendChild(listaTags[i]);
     }
-
+    
+    document.querySelector('.container-destinos').appendChild(roteiros);
     document.getElementById('form').reset();
 }

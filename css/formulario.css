@@ -1,0 +1,161 @@
+* {
+	box-sizing: border-box;
+ }
+
+body {
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+.titulo-form {
+    justify-items: center;
+}
+
+h1 {
+    grid-column: 2;
+    text-align: center;
+}
+
+.container {
+	max-width: 80%;
+	height: 100%;
+	margin: 0 auto;
+    background-color: #caffff;
+    padding: 10px;
+}
+
+section {
+	margin: 2em 0;
+	overflow: hidden;
+}
+
+.grupo, .grupo-imagem, .grupo-roteiro, .grupo-tabela {
+    display: grid;
+    margin: 10px;
+}
+
+.grupo-img {
+    grid-template-columns: 1fr;
+}
+
+.grupo {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.viagem-img {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.grupo-roteiro {
+    grid-template-columns: 1fr 20%;
+    gap: 10px;
+}
+
+.viagem-roteiro {
+    grid-column: 1;
+}
+
+.grupo-btn-add {
+    grid-column: 2;
+}
+
+.grupo-btn-add > button {
+    margin-top: 21px !important;
+    width: 100% !important;
+}
+
+.btn-excluir {
+    width: 30% !important;
+}
+
+.grupo-btn-add > button, .btn-excluir {
+    height: 33px !important;
+    font-size: 100% !important;
+}
+
+.grupo-btn-inserir {
+    margin: 10px;
+}
+
+table {
+	width: 100%;
+    table-layout: fixed;
+    background-color: #EEE;
+}
+
+td, th {
+	padding: .7em;
+	margin: 0;
+}
+
+.btn-excluir-roteiro {
+    max-width: 30%;
+}
+
+tr.td-destino {
+    width: 40px;
+}
+
+tbody > tr {
+    border: 1px solid #ccc;
+}
+
+th {
+	font-weight: bold;
+	background-color: #EEE;
+    width: 100%;
+}
+
+.btn-excluir, .btn-inserir {
+    float: right;
+}
+
+label {
+	color: #555;
+	display: block;
+	margin-bottom: .2em;
+}
+
+.campo {
+	margin: 0;
+	padding-bottom: 1em;
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: .7em;
+	width: 100%;
+}
+
+button.adicionar-destino, button.btn-inserir, button.btn-excluir {
+	padding: .5em 2em;
+	border: 0;
+	border-bottom: 3px solid;
+	font-size: 1.2em;
+	cursor: pointer;
+	margin: 0;
+	margin-top: -3px;
+	color: #fff;
+	background-color:#0c8cd3;
+	border-color: #04324c;
+	width: 20%;
+    display: block;
+    clear: both;
+    margin: 10px 0px;
+
+}
+
+/* button.adicionar-destino:active, button.btn-inserir:active, button.btn-excluir:active {
+	margin-top:0px;
+	border: 0;
+} */
+
+button[disabled=disabled], button:disabled {
+    background-color: gray;
+	border-color: darkgray;
+
+}
+
+.esconder {
+	display: none;
+}

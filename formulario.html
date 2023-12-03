@@ -1,44 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastrar novo pacote</title>
-
+    
+    <link rel="stylesheet" href="./css/formulario.css">
     <link rel="stylesheet" href="./css/estilo.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+    <title>Cadastrar novo pacote</title>
 </head>
 <body>
-    <form id="form">
-        <label for="imagemURL">URL da Imagem:</label>
-        <input type="url" id="imagemURL" placeholder="Insira a URL da imagem" required>
-    
-        <label for="destino">Destino:</label>
-        <input type="text" id="destino" placeholder="Informe o destino" required>
-    
-        <label for="roteiro">Roteiro:</label>
-        <input type="text" id="roteiro" placeholder="Informe o roteiro" required>
-        
-        <label for="preco">Preço:</label>
-        <input type="number" id="preco" placeholder="Informe o valor do pacote" required>
-        
-        <label for="observacao">Observação:</label>
-        <input type="text" id="observacao" required>
-    
-        <label for="parcelamento">Parcelamento:</label>
-        <input type="text" id="parcelamento">
-    
-        <button type="button" onclick="inserirPacote()">Inserir</button>
-    </form>
-    
-    </br><hr class="esconder"></br>
-    <div class="container-destinos">
-        <!-- Aqui serão inseridos os itens do pacote turístico -->
-    </div>
+    <section class="container">
+        <div class="titulo-form">
+            <h1>Cadastrar novo pacote</h1>
+        </div>
+        <form id="form">
+            <div class="grupo-img">
+                <div class="viagem-img">
+                    <label for="imagemURL">URL da Imagem:</label>
+                    <input type="url" id="imagemURL" placeholder="Insira a URL da imagem" required class="campo">
+                </div>
+            </div>
+            
+            <div class="grupo">
+                <div class="viagem-destino">
+                    <label for="destino">Destino:</label>
+                    <input type="text" id="destino" placeholder="Informe o destino" required class="campo">
+                </div>
+                <div class="viagem-preco">
+                    <label for="preco">Preço:</label>
+                    <input type="number" id="preco" placeholder="Informe o valor do pacote" required class="campo">
+                </div>
+            </div>
 
-    <script src="./js/script.js"></script>
+            <div class="grupo">
+                <div class="viagem-obs">
+                    <label for="observacao">Observação:</label>
+                    <input type="text" id="observacao" placeholder="Informe as observações do roteiro" required class="campo">
+                </div>
+                <div class="viagem-parcelamento">
+                    <label for="parcelamento">Parcelamento:</label>
+                    <input type="text" id="parcelamento" placeholder="Informe as condições de parcelamento" required class="campo">
+                </div>
+            </div>
+            
+            <div class="grupo-roteiro">
+                <div class="viagem-roteiro">
+                    <label for="roteiro">Roteiro:</label>
+                    <input type="text" id="roteiro" placeholder="Informe o roteiro" required class="campo">
+                </div>
+                <div class="grupo-btn-add">
+                    <button type="button" id="add-destino" class="adicionar-destino">Adicionar roteiro</button>
+                </div>
+            </div>
+
+            <div class="grupo-tabela">
+                <table id="tbl-roteiros" class="esconder">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-roteiros">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="grupo-btn-inserir">
+                <button type="button" class="btn-inserir" onclick="inserirPacote()">Inserir</button>
+            </div>
+        </form>
+    </section>
+
+    </br><hr class="esconder"></br>
+
+    <section id="card-destino">
+        <div class="container-destinos">
+            <!-- Aqui serão inseridos os itens do pacote turístico -->
+        </div>
+    </section>
+    
+    <script src="./js/formulario.js"></script>
 </body>
 </html>

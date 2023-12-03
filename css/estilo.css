@@ -73,10 +73,6 @@ li {
     box-shadow: -6px 6px 0px 1px #5a2869
 }
 
-.esconder {
-    display: none;
-}
-
 @media (min-width: 1200px) {
     .container-destinos {
         display: flex;
