@@ -145,15 +145,15 @@ button.adicionar-destino, button.btn-inserir, button.btn-excluir {
 
 }
 
-/* button.adicionar-destino:active, button.btn-inserir:active, button.btn-excluir:active {
-	margin-top:0px;
-	border: 0;
-} */
-
 button[disabled=disabled], button:disabled {
     background-color: gray;
 	border-color: darkgray;
 
+}
+
+.fadeOut {
+	opacity: 0;
+	transition: 0.5s;
 }
 
 .esconder {

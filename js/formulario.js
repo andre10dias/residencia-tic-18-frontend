@@ -33,12 +33,19 @@ function montaTr(descricaoRoteiro) {
     let tdBtnExcluir = montarTag('td', 'btn-excluir-roteiro', '');
     let btn = montarTag('button', 'btn-excluir', 'Excluir');
 
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('onclick', 'excluirRoteiro(this)');
     tdBtnExcluir.appendChild(btn);
 
     tr.appendChild(tdDescricao);
     tr.appendChild(tdBtnExcluir);
 
     return tr;
+}
+
+function esconderTabela() {
+    tabela = document.querySelector('#tbl-roteiros');
+    tabela.classList.add('esconder');
 }
 
 function exibirTabela() {
@@ -64,6 +71,25 @@ botaoAdicionar.addEventListener("click", function(event) {
         document.querySelector("#roteiro").value = '';
     }
 });
+
+function excluirRoteiro(btn) {
+    // let qtdeLinhas = document.querySelector('#tabela-roteiros').querySelectorAll('tr').length;
+
+    let linha = btn.parentNode.parentNode;
+    linha.classList.add("fadeOut");
+
+    let tbody = linha.parentNode;
+    let qtdeLinhas = tbody.querySelectorAll('tr').length;
+
+    setTimeout(function() {
+        tbody.removeChild(linha);
+    }, 500);
+    
+    qtdeLinhas--;
+    if (qtdeLinhas == 0) {
+        esconderTabela();
+    }
+}
 
 function retornaDadosTabelaRoteiros() {
     let tbody = document.querySelector('#tabela-roteiros');
@@ -119,7 +145,21 @@ function retornarTagsDestinos() {
     return listaTags;
 }
 
-function inserirPacote() {
+function limparTabela() {
+    var tbody = document.querySelector('tbody');
+    let tr = tbody.querySelectorAll('tr');
+
+    for (let i = 0; i < tr.length; i++) {
+        tr[i].remove();
+    }
+
+    esconderTabela();
+}
+
+let botaoInserir = document.querySelector("#inserir-pacote");
+botaoInserir.addEventListener("click", function(event) {
+    event.preventDefault();
+
     let listaTags = retornarTagsDestinos();
     let roteiros = montarTag('div', 'roteiros-viagens', '');
 
@@ -131,4 +171,5 @@ function inserirPacote() {
     
     document.querySelector('.container-destinos').appendChild(roteiros);
     document.getElementById('form').reset();
-}
+    limparTabela();
+})
