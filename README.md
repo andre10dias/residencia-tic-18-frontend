@@ -11,6 +11,11 @@
 npm i
 ```
 
+> Iniciar compilação automática:
+```
+tsc -w
+```	
+
 > Executar o projeto:
 ```
 npm start
