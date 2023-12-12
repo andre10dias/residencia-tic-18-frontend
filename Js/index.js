@@ -26,7 +26,7 @@ function getNoticias() {
     })
         .catch(error => {
         console.error('Erro na requisição:', error);
-        throw error; // Propaga o erro para que possa ser tratado mais adiante
+        throw error;
     });
 }
 getNoticias().then(data => {

@@ -25,17 +25,18 @@ class Noticia {
 function getNoticias(): Promise<any> {
     const apiUrl = 'https://servicodados.ibge.gov.br/api/v3/noticias/?qtd=3';
 
-return fetch(apiUrl)
-    .then(response => {
-    if (!response.ok) {
-        throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
-    }
-    return response.json();
-    })
-    .catch(error => {
-    console.error('Erro na requisição:', error);
-    throw error; // Propaga o erro para que possa ser tratado mais adiante
-    });
+    return fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status} - ${response.statusText}`);
+            }
+            
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Erro na requisição:', error);
+            throw error;
+        });
 }
 
 getNoticias().then(
@@ -45,7 +46,6 @@ getNoticias().then(
             exibeNoticia(noticia);
         });
     }
-    
 ).catch(
     error => console.error('Erro ao obter dados:', error)
 );   
