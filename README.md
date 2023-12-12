@@ -2,4 +2,16 @@
 
 ## Carlos André Dias
 
-#### Instrução Prática FEB-P002
+#### Instrução Prática FEB-P005
+
+##### Como executar o projeto?
+
+> Instalar dependências:
+```
+npm i
+```
+
+> Executar o projeto:
+```
+npm start
+```
