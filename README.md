@@ -21,7 +21,12 @@ npm i -g ts-node
 tsc -w
 ```	
 
-> Executar arquivo manualmente:
+> Iniciar o servidor:
+```
+npm run start
+```
+
+##### Executando manualmente:
 > Compilar
 ```
 tsc <nome-do-arquivo>.ts
