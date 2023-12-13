@@ -97,7 +97,7 @@ getNoticias().then(data => {
 function getServicos() {
     const key = '7khc!cGDu3hsnWK';
     const apiUrl = `https://api.hgbrasil.com/weather?key=${key}&lat=-14.792&lon=-39.051&user_ip=remote`;
-    return requisicao(apiUrl);
+    return requisicao(apiUrl); //Está sendo bloqueado pela política de CORS
 }
 getServicos().then(data => {
     let titulo = "Previsão do tempo para a cidade de ";
