@@ -11,12 +11,22 @@
 npm i
 ```
 
+> Instalar plugin Code Runner e executar o comando a seguir:
+```
+npm i -g ts-node
+```
+
 > Iniciar compilação automática:
 ```
 tsc -w
 ```	
 
-> Executar o projeto:
+> Executar arquivo manualmente:
+> Compilar
 ```
-npm start
+tsc <nome-do-arquivo>.ts
+```
+> Executar:
+```
+node <nome-do-arquivo>.js
 ```
