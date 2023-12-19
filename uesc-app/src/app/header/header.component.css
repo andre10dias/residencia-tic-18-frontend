@@ -1,0 +1,27 @@
+.header {
+    font-family: 'Kanit', sans-serif;
+}
+
+@media (min-width: 500px) {
+    .header {
+        background-color: #015874;
+        color: #0084c3;
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        align-items: center;
+        justify-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        background-color: #015874;
+        color: #0084c3;
+        display: grid;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        align-items: center;
+        justify-items: center;
+    }
+}
