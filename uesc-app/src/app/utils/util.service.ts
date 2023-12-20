@@ -18,9 +18,17 @@ export class UtilService {
     return tagx;
   }
 
-  public montarTagImg(classe: string, src: string): HTMLImageElement {
+  public montarTagImg(classe: string, src: string, height?: number, width?: number): HTMLImageElement {
     let imagem: HTMLImageElement = this.montarTag('img', classe, '') as HTMLImageElement;
     imagem.src = src;
+
+    if (width) {
+      imagem.width = width;
+    }
+
+    if (height) {
+      imagem.height = height;
+    }
 
     return imagem;
   }

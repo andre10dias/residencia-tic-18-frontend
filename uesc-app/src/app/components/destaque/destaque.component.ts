@@ -30,7 +30,7 @@ export class DestaqueComponent {
           let destaque = new Destaque(x.id, x.url, x.height, x.width);
 
           if (count < 2) { //O parâmetro "limit" da API não funciona direito
-              this.exibeDestaque(destaque, 'img'+(index+1));
+              this.exibeDestaque(destaque, 'img'+(index+1), 150, 150);
           }
 
           count++;
@@ -43,9 +43,9 @@ export class DestaqueComponent {
   }
   
 
-  private exibeDestaque(destaque: Destaque, classe: string) {
+  private exibeDestaque(destaque: Destaque, classe: string, altura?: number, largura?: number) {
     let div = document.querySelector('.imagens');
-    let img = this.utilService.montarTagImg(classe, destaque.url);
+    let img = this.utilService.montarTagImg(classe, destaque.url, altura, largura);
 
     div?.appendChild(img);
   }
