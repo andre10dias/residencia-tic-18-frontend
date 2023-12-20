@@ -1,0 +1,20 @@
+#servicos > .titulo {
+    padding-top: 0px;
+}
+
+#servicos {
+    display: grid;
+}
+
+@media (min-width: 500px) {
+    #servicos {
+        background-color: orange;
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    #servicos {
+        background-color: pink;
+    }
+}

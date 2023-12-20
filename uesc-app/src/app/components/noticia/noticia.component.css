@@ -1,0 +1,23 @@
+.noticias > .titulo {
+    padding-top: 0px;
+}
+
+.noticias {
+    display: grid;
+}
+
+@media (min-width: 500px) {
+    .noticias {
+        background-color: yellow;
+        display: grid;
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .noticias {
+        background-color: aqua;
+        display: grid;
+        grid-row: 2;
+    }
+}

@@ -1,0 +1,19 @@
+.resultados > .titulo {
+    padding-top: 0px;
+}
+
+.resultados {
+    display: grid;
+}
+
+@media (min-width: 500px) {
+    .resultados {
+        background-color: pink;
+    }
+}
+
+@media (max-width: 500px) {
+    .resultados {
+        background-color: orange;
+    }
+}

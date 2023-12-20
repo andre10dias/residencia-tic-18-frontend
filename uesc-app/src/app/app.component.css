@@ -42,12 +42,12 @@ p {
         margin-bottom: 10px;
     }
 
-    img {
+    /* img {
         width: 100px;
         height: 100px;
         grid-column: 1;
         position: relative;
-    }
+    } */
 
     .block-1 {
         display: grid;
@@ -102,10 +102,10 @@ p {
         margin-bottom: 10px;
     }
 
-    img {
+    /* img {
         width: 100px;
         height: 100px;
-    }
+    } */
 
     .block-1 {
         display: grid;

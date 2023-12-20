@@ -3,13 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NoticiaComponent } from './noticia/noticia.component';
-import { DestaqueComponent } from './destaque/destaque.component';
-import { ServicoComponent } from './servico/servico.component';
-import { ResultadoComponent } from './resultado/resultado.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MenuComponent } from './menu/menu.component';
+import { NoticiaComponent } from './components/noticia/noticia.component';
+import { DestaqueComponent } from './components/destaque/destaque.component';
+import { ServicoComponent } from './components/servico/servico.component';
+import { ResultadoComponent } from './components/resultado/resultado.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MenuComponent } from './menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

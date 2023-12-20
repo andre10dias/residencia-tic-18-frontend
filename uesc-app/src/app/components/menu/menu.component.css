@@ -1,0 +1,22 @@
+.menu > .titulo {
+    padding-top: 0px;
+}
+
+.menu {
+    display: grid;
+}
+
+@media (min-width: 500px) {
+    .menu {
+        background-color: aqua;
+        grid-column: 1;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .menu {
+        background-color: purple;
+        grid-row: 1;
+    }
+}
