@@ -2,20 +2,6 @@
     font-family: 'Lora', serif;
 }
 
-.corpo {
-    font-family: 'Nunito', sans-serif;
-    padding: 10px;
-}
-
-li {
-    list-style-type: none;
-    margin: 5px;
-}
-
-p {
-    margin: 0px;
-}
-
 @media (min-width: 500px) {
     .container {
         display: grid;
@@ -32,14 +18,6 @@ p {
         grid-column-end: 4;
         align-items: center;
         justify-items: center;
-    }
-
-    .titulo {
-        border-bottom: 1px solid black;
-        padding-top: 40px;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
     }
 
     /* img {
@@ -92,14 +70,6 @@ p {
         grid-column-end: 4;
         align-items: center;
         justify-items: center;
-    }
-
-    .titulo {
-        border-bottom: 1px solid black;
-        /* padding-top: 40px; */
-        width: 100%;
-        text-align: center;
-        margin-bottom: 10px;
     }
 
     /* img {

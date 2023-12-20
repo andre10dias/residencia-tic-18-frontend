@@ -1,5 +1,6 @@
 .destaque {
     display: grid;
+    grid-template-rows: 33px 540px;
 }
 
 img, .img1, .img2 {
@@ -7,13 +8,22 @@ img, .img1, .img2 {
     height: 100px;
 }
 
+.titulo {
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 @media (min-width: 500px) {
     .destaque {
         background-color: purple;
-        /* display: grid; */
-        grid-template-rows: 30px 410px;
         align-items: center;
         justify-items: center;
+    }
+
+    .titulo {
+        padding-top: 40px;
     }
 
     .imagens {

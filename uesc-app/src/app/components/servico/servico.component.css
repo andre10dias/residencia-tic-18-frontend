@@ -1,20 +1,42 @@
-#servicos > .titulo {
+.servicos > .titulo {
     padding-top: 0px;
 }
 
-#servicos {
+.servicos {
     display: grid;
+    grid-template-rows: 73px 500px;
+}
+
+.titulo {
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.corpo {
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+li {
+    list-style-type: none;
+    margin: 5px;
 }
 
 @media (min-width: 500px) {
-    #servicos {
+    .servicos {
         background-color: orange;
         grid-column: 1;
+    }
+
+    .titulo {
+        padding-top: 40px;
     }
 }
 
 @media (max-width: 500px) {
-    #servicos {
+    .servicos {
         background-color: pink;
     }
 }

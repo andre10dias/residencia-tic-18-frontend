@@ -4,6 +4,19 @@
 
 .menu {
     display: grid;
+    grid-template-rows: 72px 500px;
+}
+
+.titulo {
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+li {
+    list-style-type: none;
+    margin: 5px;
 }
 
 @media (min-width: 500px) {
@@ -12,6 +25,9 @@
         grid-column: 1;
     }
 
+    .titulo {
+        padding-top: 40px;
+    }
 }
 
 @media (max-width: 500px) {

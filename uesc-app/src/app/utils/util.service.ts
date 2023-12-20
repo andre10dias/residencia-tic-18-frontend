@@ -32,4 +32,17 @@ export class UtilService {
 
     return imagem;
   }
+
+  public montarTagUlComLi(classe: string, qtdeLi: number, styles: Record<string, string> = {}): HTMLElement {
+    let ul: HTMLElement = this.montarTag('ul', classe, '') as HTMLElement;
+  
+    for (let i = 0; i < qtdeLi; i++) {
+      let li: HTMLElement = this.montarTag('li', '', '') as HTMLElement;
+      ul.appendChild(li);
+    }
+  
+    return ul;
+  }
+
 }
+

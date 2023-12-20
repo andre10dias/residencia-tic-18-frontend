@@ -4,11 +4,28 @@
 
 .resultados {
     display: grid;
+    grid-template-rows: 73px 500px;
+}
+
+.titulo {
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+li {
+    list-style-type: none;
+    margin: 5px;
 }
 
 @media (min-width: 500px) {
     .resultados {
         background-color: pink;
+    }
+
+    .titulo {
+        padding-top: 40px;
     }
 }
 
