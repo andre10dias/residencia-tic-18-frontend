@@ -1,0 +1,37 @@
+<!-- <div>
+    <app-aviao [listaAviao]="listaCategoria.Avioes" (aviaoSelecionado)="selecionaCategoria($event)"></app-aviao>
+    <app-carro [listaCarro]="listaCategoria.Carros" (carroSelecionado)="selecionaCategoria($event)"></app-carro>
+    <app-barco [listaBarco]="listaCategoria.Barcos" (barcoSelecionado)="selecionaCategoria($event)"></app-barco>
+</div> -->
+
+<div class="categoria">
+    <button mat-fab color="primary" (click)="selecionaCategoria('AVIAO')">
+        <mat-icon>
+            <span class="material-symbols-outlined">flight</span>
+        </mat-icon>
+    </button>
+
+    <button mat-fab color="primary" (click)="selecionaCategoria('CARRO')">
+        <mat-icon>
+            <span class="material-symbols-outlined">airport_shuttle</span>
+        </mat-icon>
+    </button>
+
+    <button mat-fab color="primary" (click)="selecionaCategoria('BARCO')">
+        <mat-icon>
+            <span class="material-symbols-outlined">sailing</span>
+        </mat-icon>
+    </button>
+</div>
+
+<div class="selecionado" *ngIf="exibirCategoria === 'AVIAO'">
+    <app-aviao [listaAviao]="listaCategoria.Avioes"></app-aviao>
+</div>
+
+<div class="selecionado" *ngIf="exibirCategoria === 'CARRO'">
+    <app-carro [listaCarro]="listaCategoria.Carros"></app-carro>
+</div>
+
+<div class="selecionado" *ngIf="exibirCategoria === 'BARCO'">
+    <app-barco [listaBarco]="listaCategoria.Barcos"></app-barco>
+</div>
