@@ -32,8 +32,8 @@ mat-card {
 }
 
 mat-card-title {
-    color: #faf9ee;
-    background-color: #ff6347;
+    /* color: #faf9ee;
+    background-color: #ff6347; */
     border-radius: 5px;
     padding: 5px;
 }
@@ -47,10 +47,10 @@ p, .item-nome {
     padding: 5px;
 }
 
-p {
+/* p {
     color: #faf9ee;
     background-color: #0178fc;
-}
+} */
 
 .btn-adicionar {
     color: #faf9ee;

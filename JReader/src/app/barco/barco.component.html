@@ -2,11 +2,11 @@
     <div class="card-itens">
         <mat-card  class="card">
             <mat-card-header>
-              <mat-card-title>{{titulo}}</mat-card-title>
+              <mat-card-title appTitulo>{{titulo}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <div *ngFor="let barco of listaBarco">
-                    <button mat-button color="primary" (click)="filtrarBarco(barco.nome)">{{barco.nome}}</button>
+                    <button appConteudo mat-button color="primary" (click)="filtrarBarco(barco.nome)">{{barco.nome}}</button>
                 </div>
             </mat-card-content>
         </mat-card>

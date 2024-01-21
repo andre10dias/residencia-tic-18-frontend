@@ -26,8 +26,8 @@ mat-card {
 }
 
 mat-card-title {
-    color: #faf9ee;
-    background-color: #ff6347;
+    /* color: #faf9ee;
+    background-color: #ff6347; */
     border-radius: 5px;
     padding: 5px;
 }
@@ -36,12 +36,12 @@ mat-card-content {
     margin-top: 5px;
 }
 
-.mat-mdc-button {
+/* .mat-mdc-button {
     color: #faf9ee;
-}
+} */
 
 button {
-    background-color: #0178fc;
+    /* background-color: #0178fc; */
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 15px;
