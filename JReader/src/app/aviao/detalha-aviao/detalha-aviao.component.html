@@ -1,11 +1,36 @@
-<div class="detalhe" *ngIf="aviao">
-    <div>{{aviao.nome}}</div>
-    <ul>
-        <li>{{aviao.modelo}}</li>
-        <li>{{aviao.motor}}</li>
-        <li>{{aviao.numeroPassageiros}}</li>
-        <li>{{aviao.autonomia}}</li>
-        <li>{{aviao.alcance}}</li>
-        <li>{{aviao.teto}}</li>
-    </ul>
+<div class="itens-detalhe">
+    <div class="card-detalhe" *ngIf="aviao">
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>{{aviao.nome}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{aviao.modelo}}</p>
+              <p>{{aviao.motor}}</p>
+              <p>{{aviao.numeroPassageiros}}</p>
+              <p>{{aviao.autonomia}}</p>
+              <p>{{aviao.alcance}}</p>
+              <p>{{aviao.teto}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="item-nome">
+        <mat-card class="card" *ngIf="aviao">
+            <mat-card-header>
+              <mat-card-title>{{aviao.nome}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="adicionar" *ngIf="aviao">
+        <button class="btn-adicionar" mat-button (click)="adicionar(aviao)">
+            <mat-icon>
+                <span class="material-symbols-outlined">add</span>
+            </mat-icon>
+            Adicionar
+        </button>
+    </div>
 </div>

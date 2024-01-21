@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { Barco } from '../../model/Barco';
 
 @Component({
   selector: 'app-detalha-barco',
@@ -8,6 +9,10 @@ import { Component, Input, SimpleChanges } from '@angular/core';
 export class DetalhaBarcoComponent {
 
   @Input() barco: any;
+
+  adicionar(barco: Barco) {
+    console.log(barco);
+  }
 
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log('[detalha.barco.component] Barco:', this.barco);

@@ -1,6 +1,18 @@
-<div class="titulo">{{titulo}}</div>
-<div *ngFor="let aviao of listaAviao">
-    <button mat-button color="primary" (click)="filtrarAviao(aviao.nome)">{{aviao.nome}}</button>
+<div class="itens">
+    <div class="card-itens">
+        <mat-card  class="card">
+            <mat-card-header>
+              <mat-card-title>{{titulo}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngFor="let aviao of listaAviao">
+                    <button mat-button (click)="filtrarAviao(aviao.nome)">{{aviao.nome}}</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="detalhe">
+        <app-detalha-aviao [aviao]="aviao"></app-detalha-aviao>
+    </div>
 </div>
-
-<app-detalha-aviao [aviao]="aviao"></app-detalha-aviao>

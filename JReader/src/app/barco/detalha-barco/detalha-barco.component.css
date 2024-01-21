@@ -1,0 +1,58 @@
+.itens-detalhe {
+    display: grid;
+    grid-template-rows: 1fr 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+}
+
+.card-detalhe, .item-nome {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.card-detalhe {
+    grid-column-start: 1;
+}
+
+.item-nome {
+    grid-column-start: 2;
+}
+
+.adicionar {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+mat-card {
+    height: 375px !important;
+}
+
+mat-card-title {
+    color: #faf9ee;
+    background-color: #ff6347;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+mat-card-content {
+    margin-top: 5px;
+}
+
+p, .item-nome {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+p {
+    color: #faf9ee;
+    background-color: #0178fc;
+}
+
+.btn-adicionar {
+    color: #faf9ee;
+    background-color: #ff6348;
+}

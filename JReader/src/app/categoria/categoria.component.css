@@ -1,0 +1,14 @@
+.categoria-view {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 90px 1fr;
+    column-gap: 5px;
+}
+
+.item-categoria-view {
+    grid-column-start: 2;
+}
+
+.card, .categoria {
+    margin-bottom: 10px;
+}
