@@ -1,4 +1,6 @@
 <div class="titulo">{{titulo}}</div>
 <div *ngFor="let aviao of listaAviao">
-    <button mat-button color="primary">{{aviao.Name}}</button>
+    <button mat-button color="primary" (click)="filtrarAviao(aviao.nome)">{{aviao.nome}}</button>
 </div>
+
+<app-detalha-aviao [aviao]="aviao"></app-detalha-aviao>

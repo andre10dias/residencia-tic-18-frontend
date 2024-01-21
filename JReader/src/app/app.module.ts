@@ -13,6 +13,9 @@ import { RodapeComponent } from './rodape/rodape.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { DetalhaAviaoComponent } from './aviao/detalha-aviao/detalha-aviao.component';
+import { DetalhaCarroComponent } from './carro/detalha-carro/detalha-carro.component';
+import { DetalhaBarcoComponent } from './barco/detalha-barco/detalha-barco.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { CategoriaComponent } from './categoria/categoria.component';
     BarcoComponent,
     InputFileComponent,
     RodapeComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    DetalhaAviaoComponent,
+    DetalhaCarroComponent,
+    DetalhaBarcoComponent
   ],
   imports: [
     BrowserModule,

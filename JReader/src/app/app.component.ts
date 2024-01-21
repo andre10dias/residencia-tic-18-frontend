@@ -6,11 +6,12 @@ import { Component, Output } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-
+  
   title = 'JReader';
   listaCategoria: any = [];
   
   onJsonObject(event: any) {
-    this.listaCategoria = event; 
+    this.listaCategoria = event;
   }
+  
 }
