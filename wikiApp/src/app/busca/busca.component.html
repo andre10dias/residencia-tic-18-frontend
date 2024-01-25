@@ -1,4 +1,11 @@
-<div class="input">
-    <input matInput id="search" [(ngModel)]="buscar">
-    <button type="button" mat-raised-button (click)="pesquisar()">Buscar...</button>
+<div class="busca">
+    <input matInput id="search" [(ngModel)]="buscar" type="search">
+    <button type="button" mat-raised-button (click)="pesquisar()">
+        <mat-icon>
+            <span class="material-symbols-outlined">
+                search
+            </span>
+        </mat-icon>
+        Buscar...
+    </button>
 </div>

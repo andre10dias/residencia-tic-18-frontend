@@ -1,2 +1,5 @@
-<app-busca></app-busca>
-<app-resultado-busca></app-resultado-busca>
+<div class="content">
+    <app-titulo></app-titulo>
+    <app-busca (dadosBusca)="receberResultado($event)"></app-busca>
+    <app-resultado-busca [resultadoBusca]="listaResultados"></app-resultado-busca>
+</div>

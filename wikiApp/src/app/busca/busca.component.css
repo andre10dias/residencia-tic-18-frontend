@@ -1,0 +1,14 @@
+.busca {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 300px;
+}
+
+button {
+    margin-left: 5px;
+}

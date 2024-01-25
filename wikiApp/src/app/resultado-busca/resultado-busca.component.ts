@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-resultado-busca',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './resultado-busca.component.css'
 })
 export class ResultadoBuscaComponent {
+
+  @Input() resultadoBusca: any;
+
+  baseUrl: string = 'https://en.wikipedia.org/wiki?curid=';
+
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log('[resultado-busca.component]: ', this.resultadoBusca);
+  // }
 
 }

@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class WikiService {
 
-  private url: string = 'https://en.wikipedia.org/w/api.php';
+  private baseUrl: string = 'https://en.wikipedia.org/w/api.php';
 
   constructor(private http: HttpClient) { }
 
   public search(term: string) {
-    return this.http.get(this.url, {
+    return this.http.get(this.baseUrl, {
       params: {
         action: 'query',
         format: 'json',
