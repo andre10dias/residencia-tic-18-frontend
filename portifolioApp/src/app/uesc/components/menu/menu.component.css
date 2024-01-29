@@ -1,0 +1,38 @@
+.menu > .titulo {
+    padding-top: 17px;
+}
+
+.menu {
+    display: grid;
+    grid-template-rows: 72px 500px;
+}
+
+.titulo {
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+li {
+    list-style-type: none;
+    margin: 5px;
+}
+
+@media (min-width: 500px) {
+    .menu {
+        background-color: aqua;
+        grid-column: 1;
+    }
+
+    .titulo {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .menu {
+        background-color: purple;
+        grid-row: 1;
+    }
+}

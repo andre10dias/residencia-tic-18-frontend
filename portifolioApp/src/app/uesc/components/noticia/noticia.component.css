@@ -1,0 +1,44 @@
+.noticias > .titulo {
+    padding-top: 17px;
+}
+
+.noticias {
+    display: grid;
+    grid-template-rows: 72px 500px;
+}
+
+.titulo {
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.corpo {
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+}
+
+p {
+    margin: 0px;
+}
+
+@media (min-width: 500px) {
+    .noticias {
+        background-color: yellow;
+        display: grid;
+        grid-column: 2;
+    }
+
+    .titulo {
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .noticias {
+        background-color: aqua;
+        display: grid;
+        grid-row: 2;
+    }
+}

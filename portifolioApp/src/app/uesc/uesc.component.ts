@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './uesc.component.css'
 })
 export class UescComponent {
-
+  title = 'uesc-app';
 }

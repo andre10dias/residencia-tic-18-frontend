@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  protected titulo: string = "Universidade Estadual de Santa Cruz";
+
+  constructor() { }
+
 }
