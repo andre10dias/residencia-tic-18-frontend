@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { UescComponent } from './uesc/uesc.component';
 import { JreaderComponent } from './jreader/jreader.component';
 import { WikiComponent } from './wiki/wiki.component';
