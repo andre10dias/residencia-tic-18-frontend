@@ -1,2 +1,12 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<nav mat-tab-nav-bar [backgroundColor]="background" [tabPanel]="tabPanel">
+    @for (link of links; track link) {
+      <a mat-tab-link
+        (click)="getRota(link)"
+        [active]="activeLink == link"> {{link}} </a>
+    }
+</nav>
+<mat-tab-nav-panel #tabPanel>
+    <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+  

@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { UescComponent } from './uesc/uesc.component';
+import { JreaderComponent } from './jreader/jreader.component';
+import { WikiComponent } from './wiki/wiki.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  // { path: 'servicos', component: ServicosComponent },
-  // { path: 'sobre', component: SobreComponent },
+  { path: 'uesc-app', component: UescComponent },
+  { path: 'jreader', component: JreaderComponent },
+  { path: 'wiki-app', component: WikiComponent },
 ];
 
 @NgModule({

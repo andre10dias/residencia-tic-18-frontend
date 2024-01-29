@@ -7,17 +7,22 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UescComponent } from './uesc/uesc.component';
+import { JreaderComponent } from './jreader/jreader.component';
+import { WikiComponent } from './wiki/wiki.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { NavbarComponent } from './navbar/navbar.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    UescComponent,
+    JreaderComponent,
+    WikiComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     FormsModule,
     MatTabsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
