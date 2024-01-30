@@ -63,3 +63,34 @@ p {
     color: #faf9ee;
     background-color: #ff6348;
 }
+
+@media (max-width: 500px) {
+    .itens-detalhe {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        row-gap: 10px;
+    }
+
+    .card-detalhe {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+
+    mat-card-header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .item-nome {
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+
+    .adicionar {
+        grid-column-start: 1;
+        grid-row-start: 3;
+        justify-content: end;
+    }
+}

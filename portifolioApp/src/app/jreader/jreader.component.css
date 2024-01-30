@@ -24,3 +24,26 @@
     grid-column-start: 1;
     grid-column-end: 6;
 }
+
+@media (max-width: 500px) {
+    .app {
+        display: grid;
+        grid-template-rows: auto auto 10%;
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+        column-gap: 10px;
+        padding: 10px;
+    }
+
+    .input-file {
+        grid-row-start: 1;
+    }
+
+    .lista-categoria {
+        grid-row-start: 2;
+    }
+
+    .rodape {
+        grid-row-start: 3;
+    }
+}

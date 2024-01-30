@@ -16,3 +16,30 @@
 mat-card {
     height: 375px !important;
 }
+
+@media (max-width: 500px) {
+    .categoria-view {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 86px auto;
+        row-gap: 10px;
+    }
+
+    .card-categoria > mat-card-content {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    mat-card {
+        height: 90px !important;
+    }
+
+    .item-categoria-view {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-column-start: 1;
+        grid-row-start: 2;
+        row-gap: 10px;
+    }
+}

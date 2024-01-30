@@ -45,4 +45,34 @@ button {
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 15px;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .itens {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        row-gap: 10px;
+    }
+
+    .card-itens {
+        grid-column-start: 1;
+        grid-row-start: 1;
+    }
+
+    .detalhes {
+        grid-column-start: 1;
+        grid-row-start: 2;
+    }
+
+    .card-veiculo > mat-card-header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    mat-card {
+        height: 290px !important;
+    }
 }
