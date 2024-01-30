@@ -1,1 +1,5 @@
-<p>wiki works!</p>
+<div class="content">
+    <app-titulo></app-titulo>
+    <app-busca (dadosBusca)="receberResultado($event)"></app-busca>
+    <app-resultado-busca [resultadoBusca]="listaResultados"></app-resultado-busca>
+</div>

@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { WikiModule } from './wiki/wiki.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FormsModule,
     UescModule,
     JreaderModule,
+    WikiModule,
     MatTabsModule,
     MatToolbarModule
   ],
