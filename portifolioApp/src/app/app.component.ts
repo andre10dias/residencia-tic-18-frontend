@@ -1,37 +1,49 @@
-import { Component } from '@angular/core';
-import {Observable, Observer} from 'rxjs';
-import {AsyncPipe} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'portifolioApp';
 
   links = ['UESC-APP', 'JReader', 'Wiki-APP'];
   activeLink = this.links[0];
   background: ThemePalette = undefined;
 
-  constructor(private route: Router) { }
+  constructor(
+    private router: Router, 
+    private activatedRoute: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      take(1) // Execute apenas uma vez após a inicialização
+    ).subscribe(() => {
+      // Navegue diretamente para a rota 'uesc-app' ao iniciar
+      this.router.navigate(['/uesc-app']);
+    });
+  }
 
   getRota(link: string) {
     this.activeLink = link;
 
     switch (link) {
       case "UESC-APP":
-        this.route.navigate(['/uesc-app']);
+        this.router.navigate(['/uesc-app']);
         break;
     
       case "JReader":
-        this.route.navigate(['/jreader']);
+        this.router.navigate(['/jreader']);
         break;
 
       case "Wiki-APP":
-        this.route.navigate(['/wiki-app']);
+        this.router.navigate(['/wiki-app']);
         break;
     }
   }
