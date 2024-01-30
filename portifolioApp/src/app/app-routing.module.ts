@@ -5,6 +5,7 @@ import { JreaderComponent } from './jreader/jreader.component';
 import { WikiComponent } from './wiki/wiki.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'uesc-app' },
   { path: 'uesc-app', component: UescComponent },
   { path: 'jreader', component: JreaderComponent },
   { path: 'wiki-app', component: WikiComponent },
