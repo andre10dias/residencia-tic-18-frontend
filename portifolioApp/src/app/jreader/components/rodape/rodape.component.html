@@ -1,0 +1,17 @@
+<div *ngIf="listaCategoria">
+    <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile>2</mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+
+<!-- <mat-grid-list cols="4" rowHeight="100px">
+    @for (categoria of listaCategoria; track categoria) {
+        <mat-grid-tile
+        [colspan]="categoria.cols"
+        [rowspan]="categoria.rows"
+        [style.background]="categoria.color">{{categoria.nome}}</mat-grid-tile>
+    }
+</mat-grid-list> -->

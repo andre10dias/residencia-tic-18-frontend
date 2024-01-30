@@ -1,0 +1,36 @@
+<div class="itens-detalhe">
+    <div class="card-detalhe" *ngIf="aviao">
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title appTitulo>{{aviao.nome}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p appConteudo>{{aviao.modelo}}</p>
+              <p appConteudo>{{aviao.motor}}</p>
+              <p appConteudo>{{aviao.numeroPassageiros}}</p>
+              <p appConteudo>{{aviao.autonomia}}</p>
+              <p appConteudo>{{aviao.alcance}}</p>
+              <p appConteudo>{{aviao.teto}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="item-nome">
+        <mat-card class="card" *ngIf="aviao">
+            <mat-card-header>
+              <mat-card-title appTitulo>{{aviao.nome}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="adicionar" *ngIf="aviao">
+        <button class="btn-adicionar" mat-button (click)="adicionar(aviao)">
+            <mat-icon>
+                <span class="material-symbols-outlined">add</span>
+            </mat-icon>
+            Adicionar
+        </button>
+    </div>
+</div>

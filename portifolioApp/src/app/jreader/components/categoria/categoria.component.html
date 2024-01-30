@@ -1,0 +1,45 @@
+<div class="categoria-view">
+    <div class="card-itens">
+        <mat-card class="card">
+            <mat-card-content>
+                <div class="categoria">
+                    <button mat-fab color="primary" (click)="selecionaCategoria('AVIAO')">
+                        <mat-icon>
+                            <span class="material-symbols-outlined">flight</span>
+                        </mat-icon>
+                    </button>
+                </div>
+        
+                <div class="categoria">
+                    <button mat-fab color="primary" (click)="selecionaCategoria('CARRO')">
+                        <mat-icon>
+                            <span class="material-symbols-outlined">airport_shuttle</span>
+                        </mat-icon>
+                    </button>
+                </div>
+                
+                <div class="categoria">
+                    <button mat-fab color="primary" (click)="selecionaCategoria('BARCO')">
+                        <mat-icon>
+                            <span class="material-symbols-outlined">sailing</span>
+                        </mat-icon>
+                    </button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="item-categoria-view">
+        <div class="selecionado" *ngIf="exibirCategoria === 'AVIAO'">
+            <app-aviao [listaAviao]="getListaAvioes()"></app-aviao>
+        </div>
+        
+        <div class="selecionado" *ngIf="exibirCategoria === 'CARRO'">
+            <app-carro [listaCarro]="getListaCarros()"></app-carro>
+        </div>
+        
+        <div class="selecionado" *ngIf="exibirCategoria === 'BARCO'">
+            <app-barco [listaBarco]="getListaBarcos()"></app-barco>
+        </div>
+    </div>
+</div>

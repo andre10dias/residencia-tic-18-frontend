@@ -1,0 +1,18 @@
+<div class="itens">
+    <div class="card-itens">
+        <mat-card  class="card">
+            <mat-card-header>
+              <mat-card-title appTitulo>{{titulo}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div *ngFor="let barco of listaBarco">
+                    <button appConteudo mat-button color="primary" (click)="filtrarBarco(barco.nome)">{{barco.nome}}</button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="detalhe">
+        <app-detalha-barco [barco]="barco"></app-detalha-barco>
+    </div>
+</div>

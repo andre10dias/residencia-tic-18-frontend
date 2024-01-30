@@ -1,0 +1,35 @@
+<div class="itens-detalhe">
+    <div class="card-detalhe" *ngIf="barco">
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title appTitulo>{{barco.nome}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p appConteudo>{{barco.modelo}}</p>
+              <p appConteudo>{{barco.motor}}</p>
+              <p appConteudo>{{barco.numeroPassageiros}}</p>
+              <p appConteudo>{{barco.autonomia}}</p>
+              <p appConteudo>{{barco.alcance}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="item-nome">
+        <mat-card class="card" *ngIf="barco">
+            <mat-card-header>
+              <mat-card-title appTitulo>{{barco.nome}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+    <div class="adicionar" *ngIf="barco">
+        <button class="btn-adicionar" mat-button (click)="adicionar(barco)">
+            <mat-icon>
+                <span class="material-symbols-outlined">add</span>
+            </mat-icon>
+            Adicionar
+        </button>
+    </div>
+</div>

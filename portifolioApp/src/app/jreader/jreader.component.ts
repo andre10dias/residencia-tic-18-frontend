@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './jreader.component.css'
 })
 export class JreaderComponent {
-
+  title = 'JReader';
+  listaCategoria: any = [];
+  
+  onJsonObject(event: any) {
+    this.listaCategoria = event;
+  }
 }
