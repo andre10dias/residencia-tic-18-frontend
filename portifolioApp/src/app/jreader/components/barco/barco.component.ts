@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Barco } from '../../models/barco';
-import { Categoria } from '../../enums/categoria';
+import { CategoriaEnum } from '../../enums/categoriaEnum';
 
 @Component({
   selector: 'app-barco',
@@ -9,17 +9,37 @@ import { Categoria } from '../../enums/categoria';
 })
 export class BarcoComponent {
   @Input() listaBarco: any;
-  @Output() barcoSelecionado = new EventEmitter<Barco>();
+  @Output() adicionarCategoria = new EventEmitter<boolean>();
 
-  titulo: string = Categoria.Barco;
+  titulo: string = CategoriaEnum.Barco;
+  pathImg: string = '';
   barco: any;
 
   filtrarBarco(nome: string) {
     const barcoSelecionado = this.listaBarco.find((barco: Barco) => barco.nome === nome);
     if (barcoSelecionado) {
-      this.barcoSelecionado.emit(barcoSelecionado);
       this.barco = barcoSelecionado;
+
+      this.pathImg = '../../assets/img/';
+      let str = barcoSelecionado.nome.toLowerCase().split(' ');
+      switch (str[0]) {
+        case 'ferretti':
+          this.pathImg += 'ferretti.jpg';
+          break;
+      
+        case 'azimut':
+          this.pathImg += 'azimut.jpg';
+          break;
+
+        case 'sunseeker':
+          this.pathImg += 'sunseeker.jpg';
+          break;
+      }
     }
+  }
+
+  adicionar(event: boolean) {
+    this.adicionarCategoria.emit(event);
   }
 
   // ngOnChanges(changes: SimpleChanges) {

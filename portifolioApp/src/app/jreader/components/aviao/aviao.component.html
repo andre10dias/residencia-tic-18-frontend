@@ -13,6 +13,10 @@
     </div>
     
     <div class="detalhe">
-        <app-detalha-aviao [aviao]="aviao"></app-detalha-aviao>
+        <app-detalha-aviao 
+            [aviao]="aviao"
+            [img]="pathImg"
+            (adicionarCategoria)="adicionar($event)"
+        ></app-detalha-aviao>
     </div>
 </div>

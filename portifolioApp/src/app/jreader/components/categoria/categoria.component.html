@@ -31,15 +31,24 @@
 
     <div class="item-categoria-view">
         <div class="selecionado" *ngIf="exibirCategoria === 'AVIAO'">
-            <app-aviao [listaAviao]="getListaAvioes()"></app-aviao>
+            <app-aviao 
+                [listaAviao]="getListaAvioes()"
+                (adicionarCategoria)="adicionar($event)"
+            ></app-aviao>
         </div>
         
         <div class="selecionado" *ngIf="exibirCategoria === 'CARRO'">
-            <app-carro [listaCarro]="getListaCarros()"></app-carro>
+            <app-carro 
+                [listaCarro]="getListaCarros()"
+                (adicionarCategoria)="adicionar($event)"
+            ></app-carro>
         </div>
         
         <div class="selecionado" *ngIf="exibirCategoria === 'BARCO'">
-            <app-barco [listaBarco]="getListaBarcos()"></app-barco>
+            <app-barco
+                [listaBarco]="getListaBarcos()"
+                (adicionarCategoria)="adicionar($event)"
+            ></app-barco>
         </div>
     </div>
 </div>

@@ -58,6 +58,20 @@ p {
     background-color: #0178fc;
 } */
 
+.card-img > mat-card-header {
+    margin-bottom: 10px;
+}
+
+.mat-card-img {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: 160px;
+    width: 280px;
+}
+
 .btn-adicionar {
     color: #faf9ee;
     background-color: #ff6348;

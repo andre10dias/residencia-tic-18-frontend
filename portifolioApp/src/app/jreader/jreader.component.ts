@@ -8,8 +8,19 @@ import { Component } from '@angular/core';
 export class JreaderComponent {
   title = 'JReader';
   listaCategoria: any = [];
+  categoriaSelecionada: any = [];
+  adicionarCategoria: boolean = false;
   
   onJsonObject(event: any) {
     this.listaCategoria = event;
   }
+
+  onCategoriaSelecionada(categoria: any) {
+    this.categoriaSelecionada = categoria;
+  }
+
+  onAdicionarCategoria(event: boolean) {
+    this.adicionarCategoria = event;
+  }
+
 }

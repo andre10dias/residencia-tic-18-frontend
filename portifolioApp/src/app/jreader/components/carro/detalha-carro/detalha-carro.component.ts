@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Carro } from '../../../models/carro';
 
 @Component({
@@ -9,9 +9,12 @@ import { Carro } from '../../../models/carro';
 export class DetalhaCarroComponent {
 
   @Input() carro: any;
+  @Input() listaCarro: any;
+  @Input() img: string = '';
+  @Output() adicionarCategoria = new EventEmitter<boolean>();
 
-  adicionar(carro: Carro) {
-    console.log(carro);
+  adicionar() {
+    this.adicionarCategoria.emit(true);
   }
 
   // ngOnChanges(changes: SimpleChanges) {

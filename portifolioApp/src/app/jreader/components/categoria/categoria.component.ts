@@ -11,13 +11,34 @@ import { Barco } from '../../models/barco';
 export class CategoriaComponent {
 
   @Input() listaCategoria: any = [];
-  @Output() categoriaSelecionada = new EventEmitter<String>();
+  @Output() categoriaSelecionada = new EventEmitter<any>();
+  @Output() adicionarCategoria = new EventEmitter<boolean>();
 
   exibirCategoria: string = '';
 
   selecionaCategoria(categoria: string) {
+    this.adicionarCategoria.emit(false);
     this.exibirCategoria = categoria;
-    this.categoriaSelecionada.emit(categoria);
+  }
+
+  adicionar(event: boolean) {
+    if (event) {
+      switch (this.exibirCategoria) {
+        case 'AVIAO':
+          this.categoriaSelecionada.emit(this.getListaAvioes());
+          break;
+  
+        case 'CARRO':
+          this.categoriaSelecionada.emit(this.getListaCarros());
+          break;
+  
+        case 'BARCO':
+          this.categoriaSelecionada.emit(this.getListaBarcos());
+          break;
+      }
+
+      this.adicionarCategoria.emit(event);
+    }
   }
 
   getListaAvioes() {
@@ -61,7 +82,7 @@ export class CategoriaComponent {
         listaCarros.push(carro);
       });
     }
-
+    
     return listaCarros;
   }
 

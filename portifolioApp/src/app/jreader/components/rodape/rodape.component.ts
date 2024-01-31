@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-rodape',
@@ -6,5 +6,12 @@ import { Component, Input } from '@angular/core';
   styleUrl: './rodape.component.css'
 })
 export class RodapeComponent {
-  @Input() listaCategoria: any;
+  @Input() listaCategoria: any = [];
+  @Input() isAddCategoria: boolean = false;
+
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log('[rodape.component] listaCategoria:', this.listaCategoria);
+  //   console.log('[rodape.component] isAddCategoria:', this.isAddCategoria);
+  // }
+  
 }

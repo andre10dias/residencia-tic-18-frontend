@@ -13,6 +13,10 @@
     </div>
     
     <div class="detalhe">
-        <app-detalha-carro [carro]="carro"></app-detalha-carro>
+        <app-detalha-carro 
+            [carro]="carro"
+            [img]="pathImg"
+            (adicionarCategoria)="adicionar($event)"
+        ></app-detalha-carro>
     </div>
 </div>
