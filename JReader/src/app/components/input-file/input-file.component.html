@@ -1,0 +1,5 @@
+<div class="input">
+    <button type="button" mat-raised-button (click)="fileInput.click()">Procurar...</button>
+    <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+    <span class="file-name">{{selectedFile?.name}}</span>
+</div>

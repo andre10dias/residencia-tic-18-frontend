@@ -1,0 +1,26 @@
+.app {
+    display: grid;
+    grid-template-rows: 36px 1fr 10%;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 5px;
+    column-gap: 5px;
+    padding: 10px;
+}
+
+.input-file {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+.lista-categoria {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 6;
+}
+
+.rodape {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 6;
+}

@@ -7,25 +7,13 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": false,
-          "path": "src/app/components"
+          "standalone": false
         },
         "@schematics/angular:directive": {
-          "standalone": false,
-          "path": "src/app/directives"
+          "standalone": false
         },
         "@schematics/angular:pipe": {
-          "standalone": false,
-          "path": "src/app/pipes"
-        },
-        "@schematics/angular:service": {
-          "path": "src/app/services"
-        },
-        "@schematics/angular:enum": {
-          "path": "src/app/enums"
-        },
-        "@schematics/angular:class": {
-          "path": "src/app/models"
+          "standalone": false
         }
       },
       "root": "",
@@ -78,9 +66,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "open": true
-          },
           "configurations": {
             "production": {
               "buildTarget": "JReader:build:production"
@@ -118,5 +103,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

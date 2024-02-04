@@ -1,13 +1,20 @@
 <div class="app">
-    <div class="input-file">
-        <app-input-file (jsonObject)="onJsonObject($event)"></app-input-file>
-    </div>
+  <div class="input-file">
+      <app-input-file (jsonObject)="onJsonObject($event)"></app-input-file>
+  </div>
 
-    <div class="lista-categoria">
-        <app-categoria [listaCategoria]="listaCategoria"></app-categoria>
-    </div>
+  <div class="lista-categoria">
+      <app-categoria 
+          [listaCategoria]="listaCategoria" 
+          (categoriaSelecionada)="onCategoriaSelecionada($event)"
+          (adicionarCategoria)="onAdicionarCategoria($event)"
+      ></app-categoria>
+  </div>
 
-    <div class="rodape">
-        <app-rodape></app-rodape>
-    </div>
+  <div class="rodape">
+      <app-rodape 
+          [listaCategoria]="categoriaSelecionada"
+          [isAddCategoria]="adicionarCategoria"
+      ></app-rodape>
+  </div>
 </div>

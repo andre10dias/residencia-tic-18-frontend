@@ -3,51 +3,50 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-import { AviaoComponent } from './aviao/aviao.component';
-import { CarroComponent } from './carro/carro.component';
-import { BarcoComponent } from './barco/barco.component';
-import { InputFileComponent } from './input-file/input-file.component';
-import { RodapeComponent } from './rodape/rodape.component';
-
-import { CategoriaComponent } from './categoria/categoria.component';
-import { DetalhaAviaoComponent } from './aviao/detalha-aviao/detalha-aviao.component';
-import { DetalhaCarroComponent } from './carro/detalha-carro/detalha-carro.component';
-import { DetalhaBarcoComponent } from './barco/detalha-barco/detalha-barco.component';
+import { TituloDirective } from './directives/titulo.directive';
+import { ConteudoDirective } from './directives/conteudo.directive';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
-import { TituloDirective } from './titulo.directive';
-import { ConteudoDirective } from './conteudo.directive';
+
+import { InputFileComponent } from './components/input-file/input-file.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
+import { AviaoComponent } from './components/aviao/aviao.component';
+import { DetalhaAviaoComponent } from './components/aviao/detalha-aviao/detalha-aviao.component';
+import { BarcoComponent } from './components/barco/barco.component';
+import { DetalhaBarcoComponent } from './components/barco/detalha-barco/detalha-barco.component';
+import { CarroComponent } from './components/carro/carro.component';
+import { DetalhaCarroComponent } from './components/carro/detalha-carro/detalha-carro.component';
+import { RodapeComponent } from './components/rodape/rodape.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AviaoComponent,
-    CarroComponent,
-    BarcoComponent,
-    InputFileComponent,
-    RodapeComponent,
-    CategoriaComponent,
-    DetalhaAviaoComponent,
-    DetalhaCarroComponent,
-    DetalhaBarcoComponent,
     TituloDirective,
-    ConteudoDirective
+    ConteudoDirective,
+    AppComponent,
+    InputFileComponent,
+    CategoriaComponent,
+    AviaoComponent,
+    DetalhaAviaoComponent,
+    BarcoComponent,
+    DetalhaBarcoComponent,
+    CarroComponent,
+    DetalhaCarroComponent,
+    RodapeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
-    MatGridListModule,
-    MatCardModule
+    MatCardModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
