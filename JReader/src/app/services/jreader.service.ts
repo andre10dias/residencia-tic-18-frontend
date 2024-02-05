@@ -96,13 +96,11 @@ export class JreaderService {
 
   sendAdd(isAdd: boolean) {
     let listaNomes: string[] = [];
-    if (isAdd) {
-      this._listaCategoriaSelecionada.forEach((element: any) => {
-        listaNomes.push(element.nome);
-      })
-      
-      this._addSubject.next({listaNomes, isAdd});
-    }
+    this._listaCategoriaSelecionada.forEach((element: any) => {
+      listaNomes.push(element.nome);
+    })
+    
+    this._addSubject.next({listaNomes, isAdd});
   }
 
 }

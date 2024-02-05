@@ -11,24 +11,14 @@ import { JreaderService } from '../../services/jreader.service';
 })
 export class AviaoComponent {
   @Input() listaAviao: any;
-  // @Output() adicionarCategoria = new EventEmitter<boolean>();
 
   titulo: string = CategoriaEnum.Aviao;
   pathImg: string = '';
   aviao: any;
 
-  constructor(private service: JreaderService) {
-    // this.service.selecao$.subscribe((data) => {
-    //   console.log('Aviao: ', data);
-    // })
-  }
-
-  // filtrarAviao(nome: string) {
-  //   this.service.sendDetalhes(CategoriaEnum.Aviao, nome);
-  // }
+  constructor(private service: JreaderService) {}
 
   filtrarAviao(nome: string) {
-    // this.adicionarCategoria.emit(false);
     const aviaoSelecionado = this.listaAviao.find((aviao: Aviao) => aviao.nome === nome);
     if (aviaoSelecionado) {
       this.aviao = aviaoSelecionado;
@@ -50,10 +40,6 @@ export class AviaoComponent {
       }
     }
   }
-
-  // adicionar(event: boolean) {
-  //   this.adicionarCategoria.emit(event);
-  // }
 
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log('[aviao.component] Lista de Aviões:', this.listaAviao);

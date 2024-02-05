@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Barco } from '../../models/barco';
 import { CategoriaEnum } from '../../enums/categoria-enum';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-barco',
@@ -9,11 +10,12 @@ import { CategoriaEnum } from '../../enums/categoria-enum';
 })
 export class BarcoComponent {
   @Input() listaBarco: any;
-  @Output() adicionarCategoria = new EventEmitter<boolean>();
 
   titulo: string = CategoriaEnum.Barco;
   pathImg: string = '';
   barco: any;
+
+  constructor(private service: JreaderService) {}
 
   filtrarBarco(nome: string) {
     const barcoSelecionado = this.listaBarco.find((barco: Barco) => barco.nome === nome);
@@ -36,10 +38,6 @@ export class BarcoComponent {
           break;
       }
     }
-  }
-
-  adicionar(event: boolean) {
-    this.adicionarCategoria.emit(event);
   }
 
   // ngOnChanges(changes: SimpleChanges) {

@@ -6,7 +6,9 @@
             </mat-card-header>
             <mat-card-content>
                 <div *ngFor="let carro of listaCarro">
-                    <button appConteudo mat-button color="primary" (click)="filtrarCarro(carro.nome)">{{carro.nome}}</button>
+                    <button appConteudo mat-button color="primary" 
+                        (click)="filtrarCarro(carro.nome)"
+                    >{{carro.nome}}</button>
                 </div>
             </mat-card-content>
         </mat-card>
@@ -16,7 +18,6 @@
         <app-detalha-carro 
             [carro]="carro"
             [img]="pathImg"
-            (adicionarCategoria)="adicionar($event)"
         ></app-detalha-carro>
     </div>
 </div>

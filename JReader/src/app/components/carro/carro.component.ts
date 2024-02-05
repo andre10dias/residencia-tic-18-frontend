@@ -9,7 +9,6 @@ import { Carro } from '../../models/carro';
 })
 export class CarroComponent {
   @Input() listaCarro: any;
-  @Output() adicionarCategoria = new EventEmitter<boolean>();
 
   titulo: string = CategoriaEnum.Carro;
   pathImg: string = '';
@@ -36,10 +35,6 @@ export class CarroComponent {
           break;
       }
     }
-  }
-
-  adicionar(event: boolean) {
-    this.adicionarCategoria.emit(event);
   }
 
   // ngOnChanges(changes: SimpleChanges) {

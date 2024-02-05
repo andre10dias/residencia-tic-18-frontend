@@ -11,57 +11,34 @@ import { JreaderService } from '../../services/jreader.service';
 })
 export class CategoriaComponent {
 
-  // @Input() listaCategoria: any = [];
-  // @Output() categoriaSelecionada = new EventEmitter<any>();
-  // @Output() adicionarCategoria = new EventEmitter<boolean>();
-
   veiculoSelecionado: any = [];
   exibirCategoria: string = '';
 
   constructor(private service: JreaderService) {
     this.service.selecao$.subscribe((data) => {
-      // console.log(data);
       this.veiculoSelecionado = data;
     })
   }
 
   selecionaCategoria(categoria: string) {
-    //this.adicionarCategoria.emit(false);
     this.exibirCategoria = categoria;
 
     switch (categoria) {
       case 'AVIAO':
         this.service.sendAviao();
+        this.service.sendAdd(false);
         break;
 
       case 'CARRO':
         this.service.sendCarro();
+        this.service.sendAdd(false);
         break;
 
       case 'BARCO':
         this.service.sendBarco();
+        this.service.sendAdd(false);
         break;
     }
   }
-
-  // adicionar(event: boolean) {
-  //   if (event) {
-  //     switch (this.exibirCategoria) {
-  //       case 'AVIAO':
-  //         this.categoriaSelecionada.emit(this.getListaAvioes());
-  //         break;
-  
-  //       case 'CARRO':
-  //         this.categoriaSelecionada.emit(this.getListaCarros());
-  //         break;
-  
-  //       case 'BARCO':
-  //         this.categoriaSelecionada.emit(this.getListaBarcos());
-  //         break;
-  //     }
-
-  //     this.adicionarCategoria.emit(event);
-  //   }
-  // }
 
 }

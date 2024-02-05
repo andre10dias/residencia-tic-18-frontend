@@ -31,30 +31,15 @@
 
     <div class="item-categoria-view">
         <div class="selecionado" *ngIf="exibirCategoria === 'AVIAO'">
-            <!-- <app-aviao 
-                [listaAviao]="veiculo"
-                (adicionarCategoria)="adicionar($event)"
-                (click)="selecionaCategoria('AVIAO')"
-            ></app-aviao> -->
             <app-aviao [listaAviao]="veiculoSelecionado"></app-aviao>
         </div>
         
         <div class="selecionado" *ngIf="exibirCategoria === 'CARRO'">
-            <!-- <app-carro 
-                [listaCarro]="veiculo"
-                (adicionarCategoria)="adicionar($event)"
-                (click)="selecionaCategoria('CARRO')"
-            ></app-carro> -->
-            <app-carro></app-carro>
+            <app-carro [listaCarro]="veiculoSelecionado"></app-carro>
         </div>
         
         <div class="selecionado" *ngIf="exibirCategoria === 'BARCO'">
-            <!-- <app-barco
-                [listaBarco]="veiculo"
-                (adicionarCategoria)="adicionar($event)"
-                (click)="selecionaCategoria('BARCO')"
-            ></app-barco> -->
-            <app-barco></app-barco>
+            <app-barco [listaBarco]="veiculoSelecionado"></app-barco>
         </div>
     </div>
 </div>

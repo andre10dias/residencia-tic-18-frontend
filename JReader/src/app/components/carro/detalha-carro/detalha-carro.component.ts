@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Carro } from '../../../models/carro';
+import { JreaderService } from '../../../services/jreader.service';
 
 @Component({
   selector: 'app-detalha-carro',
@@ -9,16 +10,16 @@ import { Carro } from '../../../models/carro';
 export class DetalhaCarroComponent {
 
   @Input() carro: any;
-  @Input() listaCarro: any;
   @Input() img: string = '';
-  @Output() adicionarCategoria = new EventEmitter<boolean>();
+
+  constructor(private service: JreaderService) {}
 
   adicionar() {
-    this.adicionarCategoria.emit(true);
+    this.service.sendAdd(true);
   }
 
   // ngOnChanges(changes: SimpleChanges) {
-  //   console.log('[detalha.carro.component] Carro:', this.carro);
+  //   console.log('[detalha.aviao.component] Aviao:', this.aviao);
   // }
 
 }

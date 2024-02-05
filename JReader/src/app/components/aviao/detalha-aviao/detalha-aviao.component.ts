@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { JreaderService } from '../../../services/jreader.service';
 
 @Component({
@@ -8,15 +8,9 @@ import { JreaderService } from '../../../services/jreader.service';
 })
 export class DetalhaAviaoComponent {
   @Input() aviao: any;
-  // @Input() listaAviao: any;
   @Input() img: string = '';
-  // @Output() adicionarCategoria = new EventEmitter<boolean>();
 
-  // listaNomes: string[] = [];
-
-  constructor(private service: JreaderService) {
-    
-  }
+  constructor(private service: JreaderService) {}
 
   adicionar() {
     this.service.sendAdd(true);
