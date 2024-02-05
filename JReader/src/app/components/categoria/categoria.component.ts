@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Aviao } from '../../models/aviao';
 import { Carro } from '../../models/carro';
 import { Barco } from '../../models/barco';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-categoria',
@@ -10,102 +11,57 @@ import { Barco } from '../../models/barco';
 })
 export class CategoriaComponent {
 
-  @Input() listaCategoria: any = [];
-  @Output() categoriaSelecionada = new EventEmitter<any>();
-  @Output() adicionarCategoria = new EventEmitter<boolean>();
+  // @Input() listaCategoria: any = [];
+  // @Output() categoriaSelecionada = new EventEmitter<any>();
+  // @Output() adicionarCategoria = new EventEmitter<boolean>();
 
+  veiculoSelecionado: any = [];
   exibirCategoria: string = '';
 
+  constructor(private service: JreaderService) {
+    this.service.selecao$.subscribe((data) => {
+      // console.log(data);
+      this.veiculoSelecionado = data;
+    })
+  }
+
   selecionaCategoria(categoria: string) {
-    this.adicionarCategoria.emit(false);
+    //this.adicionarCategoria.emit(false);
     this.exibirCategoria = categoria;
+
+    switch (categoria) {
+      case 'AVIAO':
+        this.service.sendAviao();
+        break;
+
+      case 'CARRO':
+        this.service.sendCarro();
+        break;
+
+      case 'BARCO':
+        this.service.sendBarco();
+        break;
+    }
   }
 
-  adicionar(event: boolean) {
-    if (event) {
-      switch (this.exibirCategoria) {
-        case 'AVIAO':
-          this.categoriaSelecionada.emit(this.getListaAvioes());
-          break;
+  // adicionar(event: boolean) {
+  //   if (event) {
+  //     switch (this.exibirCategoria) {
+  //       case 'AVIAO':
+  //         this.categoriaSelecionada.emit(this.getListaAvioes());
+  //         break;
   
-        case 'CARRO':
-          this.categoriaSelecionada.emit(this.getListaCarros());
-          break;
+  //       case 'CARRO':
+  //         this.categoriaSelecionada.emit(this.getListaCarros());
+  //         break;
   
-        case 'BARCO':
-          this.categoriaSelecionada.emit(this.getListaBarcos());
-          break;
-      }
+  //       case 'BARCO':
+  //         this.categoriaSelecionada.emit(this.getListaBarcos());
+  //         break;
+  //     }
 
-      this.adicionarCategoria.emit(event);
-    }
-  }
-
-  getListaAvioes() {
-    let aviao: Aviao;
-    let listaAvioes: any = [];
-
-    if (this.listaCategoria.length !== 0) {
-      this.listaCategoria.Avioes.forEach((element: any) => {
-        aviao = new Aviao(
-          element.Name, 
-          element.Model, 
-          element.Engine, 
-          element.NumberOfPassengers, 
-          element.Autonomia, 
-          element.Alcance, 
-          element.Teto
-        );
-
-        listaAvioes.push(aviao);
-      });
-    }
-
-    return listaAvioes;
-  }
-
-  getListaCarros() {
-    let carro: Carro;
-    let listaCarros: any = [];
-
-    if (this.listaCategoria.length !== 0) {
-      this.listaCategoria.Carros.forEach((element: any) => {
-        carro = new Carro(
-          element.Name, 
-          element.Model, 
-          element.Engine, 
-          element.NumberOfPassengers,  
-          element.Autonomia, 
-          element.Alcance
-        );
-
-        listaCarros.push(carro);
-      });
-    }
-    
-    return listaCarros;
-  }
-
-  getListaBarcos() {
-    let barco: Barco;
-    let listaBarcos: any = [];
-
-    if (this.listaCategoria.length !== 0) {
-      this.listaCategoria.Barcos.forEach((element: any) => {
-        barco = new Barco(
-          element.Name, 
-          element.Model, 
-          element.Engine, 
-          element.NumberOfPassengers,  
-          element.Autonomia, 
-          element.Alcance
-        );
-  
-        listaBarcos.push(barco);
-      });
-    }
-
-    return listaBarcos;
-  }
+  //     this.adicionarCategoria.emit(event);
+  //   }
+  // }
 
 }

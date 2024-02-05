@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Aviao } from '../../models/aviao';
 import { CategoriaEnum } from '../../enums/categoria-enum';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-aviao',
@@ -15,6 +16,18 @@ export class AviaoComponent {
   titulo: string = CategoriaEnum.Aviao;
   pathImg: string = '';
   aviao: any;
+
+  listaAviao2: any;
+
+  constructor(private service: JreaderService) {
+    // this.service.selecao$.subscribe((data) => {
+    //   console.log('Aviao: ', data);
+    // })
+  }
+
+  // filtrarAviao(nome: string) {
+  //   this.service.sendDetalhes(CategoriaEnum.Aviao, nome);
+  // }
 
   filtrarAviao(nome: string) {
     this.adicionarCategoria.emit(false);

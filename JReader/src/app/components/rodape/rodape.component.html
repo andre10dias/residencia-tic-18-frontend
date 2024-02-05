@@ -1,37 +1,11 @@
-<div class="item-categoria" *ngIf="isAddCategoria">
-    <mat-card class="item1">
-        <mat-card-content>
-            <div class="categoria">
-                <span>{{listaCategoria[0].nome}}</span>
-            </div>
-        </mat-card-content>
-    </mat-card>
-
-    <mat-card class="item2">
-        <mat-card-content>
-            <div class="categoria">
-                <span>{{listaCategoria[1].nome}}</span>
-            </div>
-        </mat-card-content>
-    </mat-card>
-
-    <mat-card class="item3">
-        <mat-card-content>
-            <div class="categoria">
-                <span>{{listaCategoria[2].nome}}</span>
-            </div>
-        </mat-card-content>
-    </mat-card>
-
-    <!-- <div class="item1">
-        
+<div class="item-categoria" *ngIf="isAddNomeCategoria">
+    <div *ngFor="let categoria of listaNomesCategorias">
+        <mat-card class="item1">
+            <mat-card-content>
+                <div class="categoria">
+                    <span>{{categoria}}</span>
+                </div>
+            </mat-card-content>
+        </mat-card>
     </div>
-
-    <div class="item2">
-        <span>{{listaCategoria[1].nome}}</span>
-    </div>
-
-    <div class="item3">
-        <span>{{listaCategoria[2].nome}}</span>
-    </div> -->
 </div>

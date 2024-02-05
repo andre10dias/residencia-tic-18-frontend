@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { JreaderService } from '../../../services/jreader.service';
 
 @Component({
   selector: 'app-detalha-aviao',
@@ -11,8 +12,14 @@ export class DetalhaAviaoComponent {
   @Input() img: string = '';
   @Output() adicionarCategoria = new EventEmitter<boolean>();
 
+  listaNomes: string[] = [];
+
+  constructor(private service: JreaderService) {
+    
+  }
+
   adicionar() {
-    this.adicionarCategoria.emit(true);
+    this.service.sendAdd(true);
   }
 
   // ngOnChanges(changes: SimpleChanges) {

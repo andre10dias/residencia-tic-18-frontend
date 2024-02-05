@@ -4,17 +4,10 @@
   </div>
 
   <div class="lista-categoria">
-      <app-categoria 
-          [listaCategoria]="listaCategoria" 
-          (categoriaSelecionada)="onCategoriaSelecionada($event)"
-          (adicionarCategoria)="onAdicionarCategoria($event)"
-      ></app-categoria>
+      <app-categoria></app-categoria>
   </div>
 
   <div class="rodape">
-      <app-rodape 
-          [listaCategoria]="categoriaSelecionada"
-          [isAddCategoria]="adicionarCategoria"
-      ></app-rodape>
+      <app-rodape></app-rodape>
   </div>
 </div>

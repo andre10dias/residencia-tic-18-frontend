@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { JreaderService } from '../../services/jreader.service';
 
 @Component({
   selector: 'app-rodape',
@@ -6,8 +7,15 @@ import { Component, Input, SimpleChanges } from '@angular/core';
   styleUrl: './rodape.component.css'
 })
 export class RodapeComponent {
-  @Input() listaCategoria: any = [];
-  @Input() isAddCategoria: boolean = false;
+  listaNomesCategorias: string[] = [];
+  isAddNomeCategoria: boolean = false;
+
+  constructor(private service: JreaderService) {
+    this.service.addCategoria$.subscribe((data) => {
+      this.listaNomesCategorias = data.listaNomes;
+      this.isAddNomeCategoria = data.isAdd;
+    })
+  }
 
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log('[rodape.component] listaCategoria:', this.listaCategoria);

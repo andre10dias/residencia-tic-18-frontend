@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { JreaderService } from './services/jreader.service';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +11,15 @@ export class AppComponent {
   listaCategoria: any = [];
   categoriaSelecionada: any = [];
   adicionarCategoria: boolean = false;
+
+  constructor(private service: JreaderService) { 
+    this.service.listaCategoria$.subscribe((data) => {
+      this.listaCategoria = data;
+    })
+  }
   
   onJsonObject(event: any) {
-    this.listaCategoria = event;
+    this.service.sendJsonObject(event);
   }
-
-  onCategoriaSelecionada(categoria: any) {
-    this.categoriaSelecionada = categoria;
-  }
-
-  onAdicionarCategoria(event: boolean) {
-    this.adicionarCategoria = event;
-  }
+  
 }
