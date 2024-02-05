@@ -11,13 +11,11 @@ import { JreaderService } from '../../services/jreader.service';
 })
 export class AviaoComponent {
   @Input() listaAviao: any;
-  @Output() adicionarCategoria = new EventEmitter<boolean>();
+  // @Output() adicionarCategoria = new EventEmitter<boolean>();
 
   titulo: string = CategoriaEnum.Aviao;
   pathImg: string = '';
   aviao: any;
-
-  listaAviao2: any;
 
   constructor(private service: JreaderService) {
     // this.service.selecao$.subscribe((data) => {
@@ -30,7 +28,7 @@ export class AviaoComponent {
   // }
 
   filtrarAviao(nome: string) {
-    this.adicionarCategoria.emit(false);
+    // this.adicionarCategoria.emit(false);
     const aviaoSelecionado = this.listaAviao.find((aviao: Aviao) => aviao.nome === nome);
     if (aviaoSelecionado) {
       this.aviao = aviaoSelecionado;
@@ -53,9 +51,9 @@ export class AviaoComponent {
     }
   }
 
-  adicionar(event: boolean) {
-    this.adicionarCategoria.emit(event);
-  }
+  // adicionar(event: boolean) {
+  //   this.adicionarCategoria.emit(event);
+  // }
 
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log('[aviao.component] Lista de Aviões:', this.listaAviao);

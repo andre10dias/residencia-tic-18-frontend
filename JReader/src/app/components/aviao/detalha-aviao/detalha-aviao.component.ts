@@ -8,11 +8,11 @@ import { JreaderService } from '../../../services/jreader.service';
 })
 export class DetalhaAviaoComponent {
   @Input() aviao: any;
-  @Input() listaAviao: any;
+  // @Input() listaAviao: any;
   @Input() img: string = '';
-  @Output() adicionarCategoria = new EventEmitter<boolean>();
+  // @Output() adicionarCategoria = new EventEmitter<boolean>();
 
-  listaNomes: string[] = [];
+  // listaNomes: string[] = [];
 
   constructor(private service: JreaderService) {
     
