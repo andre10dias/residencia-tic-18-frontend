@@ -18,8 +18,4 @@ export class AppComponent {
     })
   }
   
-  onJsonObject(event: any) {
-    this.service.sendJsonObject(event);
-  }
-  
 }

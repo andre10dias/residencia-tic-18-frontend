@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { Aviao } from '../../models/aviao';
 import { CategoriaEnum } from '../../enums/categoria-enum';

@@ -7,7 +7,6 @@
 
 .card-detalhe, .item-nome {
     grid-row-start: 1;
-    /* grid-row-end: 2; */
 }
 
 .card-detalhe {
@@ -23,8 +22,6 @@
     display: flex;
     align-items: end;
     padding: 10px;
-    /* grid-row-start: 1; */
-    /* grid-row-end: 2; */
 }
 
 .card {
@@ -36,8 +33,6 @@ mat-card {
 }
 
 mat-card-title {
-    /* color: #faf9ee;
-    background-color: #ff6347; */
     border-radius: 5px;
     padding: 5px;
 }
@@ -53,11 +48,6 @@ p, .item-nome {
 p {
     padding: 5px;
 }
-
-/* p {
-    color: #faf9ee;
-    background-color: #0178fc;
-} */
 
 .card-img > mat-card-header {
     margin-bottom: 10px;

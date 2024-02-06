@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Barco } from '../../models/barco';
 import { CategoriaEnum } from '../../enums/categoria-enum';
 import { JreaderService } from '../../services/jreader.service';

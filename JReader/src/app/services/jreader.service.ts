@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Categoria } from '../models/categoria';
 import { Aviao } from '../models/aviao';
 import { Barco } from '../models/barco';
 import { Carro } from '../models/carro';
@@ -16,21 +15,68 @@ export class JreaderService {
 
   private _listaVeiculos: any;
   private _listaCategoriaSelecionada: any;
-
+  
   listaCategoria$ = this._jsonObjectSubject.asObservable();
   selecao$ = this._selecaoSubject.asObservable();
   addCategoria$ = this._addSubject.asObservable();
+  
+  selectedFile: any;
 
-  // aviao$ = this._selecaoSubject.asObservable();
-  // carro$ = this._selecaoSubject.asObservable();
-  // barco$ = this._selecaoSubject.asObservable();
-
-  sendJsonObject(jsonObject: any) {
-    this._listaVeiculos = jsonObject;
-    this._jsonObjectSubject.next(jsonObject);
+  sendFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0] ?? null;
+  
+    if (this.selectedFile) {
+      const fr = new FileReader();
+  
+      fr.onload = () => {
+        const content = fr.result as string;
+  
+        try {
+          const jObject = JSON.parse(content);
+  
+          // Criar um objeto para armazenar informações adicionais
+          const fileInfo = {
+            name: this.selectedFile.name,
+            content: content
+          };
+  
+          this._jsonObjectSubject.next(jObject);
+          this.selectedFile = fileInfo;
+          this._listaVeiculos = jObject;
+        } catch (error) {
+          console.error("Falha ao carregar arquivo: " + error);
+        }
+      };
+  
+      fr.readAsText(this.selectedFile);
+    }
   }
 
   sendAviao() {
+    this._listaCategoriaSelecionada = this.getListaAvioes();
+    this._selecaoSubject.next(this._listaCategoriaSelecionada);
+  }
+
+  sendBarco() {
+    this._listaCategoriaSelecionada = this.getListaBarcos();
+    this._selecaoSubject.next(this._listaCategoriaSelecionada);
+  }
+
+  sendCarro() {
+    this._listaCategoriaSelecionada = this.getListaCarros();
+    this._selecaoSubject.next(this._listaCategoriaSelecionada);
+  }
+
+  sendAdd(isAdd: boolean) {
+    let listaNomes: string[] = [];
+    this._listaCategoriaSelecionada.forEach((element: any) => {
+      listaNomes.push(element.nome);
+    })
+    
+    this._addSubject.next({listaNomes, isAdd});
+  }
+
+  private getListaAvioes() {
     let aviao: Aviao;
     let listaAvioes: Aviao[] = [];
 
@@ -48,11 +94,10 @@ export class JreaderService {
       listaAvioes.push(aviao);
     })
 
-    this._listaCategoriaSelecionada = listaAvioes;
-    this._selecaoSubject.next(listaAvioes);
+    return listaAvioes;
   }
 
-  sendBarco() {
+  private getListaBarcos() {
     let barco: Barco;
     let listaBarcos: Barco[] = [];
 
@@ -69,11 +114,10 @@ export class JreaderService {
       listaBarcos.push(barco);
     })
 
-    this._listaCategoriaSelecionada = listaBarcos;
-    this._selecaoSubject.next(listaBarcos);
+    return listaBarcos;
   }
 
-  sendCarro() {
+  private getListaCarros() {
     let carro: Carro;
     let listaCarros: Carro[] = [];
 
@@ -90,17 +134,7 @@ export class JreaderService {
       listaCarros.push(carro);
     })
 
-    this._listaCategoriaSelecionada = listaCarros;
-    this._selecaoSubject.next(listaCarros);
-  }
-
-  sendAdd(isAdd: boolean) {
-    let listaNomes: string[] = [];
-    this._listaCategoriaSelecionada.forEach((element: any) => {
-      listaNomes.push(element.nome);
-    })
-    
-    this._addSubject.next({listaNomes, isAdd});
+    return listaCarros;
   }
 
 }

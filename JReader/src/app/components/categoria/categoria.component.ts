@@ -1,7 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Aviao } from '../../models/aviao';
-import { Carro } from '../../models/carro';
-import { Barco } from '../../models/barco';
+import { Component } from '@angular/core';
 import { JreaderService } from '../../services/jreader.service';
 
 @Component({
