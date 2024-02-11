@@ -1,0 +1,101 @@
+<div id="form-reactive">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- <mat-form-field [formGroup]="form"  (ngSubmit)="onSubmit()"> -->
+        <div>
+            <div>
+                <mat-label>Nome do usuário</mat-label>
+                <div>
+                    <input matInput formControlName="nomeUsuario" required>
+                </div>
+            </div>
+
+            <div>
+                <mat-label>Senha</mat-label>
+                <div>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </div>
+            </div>
+            
+            <div>
+                <mat-label>E-mail</mat-label>
+                <div>
+                    <input matInput type="email" placeholder="pat@example.com" formControlName="email" required>
+                    <!-- @if (email.invalid) {
+                        <mat-error>{{getErrorMessage()}}</mat-error>
+                    } -->
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <mat-label>Nome Completo</mat-label>
+                <div>
+                    <input matInput formControlName="nomeCompleto" required>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <mat-label>Endereço</mat-label>
+                <div>
+                    <input matInput formControlName="endereco" required>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <mat-label>Telefone</mat-label>
+                <div>
+                    <span matTextPrefix>+55 &nbsp;</span>
+                    <input type="tel" matInput placeholder="(99) 9 9999-9999" formControlName="telefone" required>
+                    <mat-icon matSuffix>phone</mat-icon>
+                </div>
+            </div>
+
+            <div>
+                <mat-label>Data de nascimento</mat-label>
+                <div>
+                    <input matInput [matDatepicker]="picker" formControlName="nascimento" required>
+                    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+            </div>
+
+            <div>
+                <mat-label>Gênero</mat-label>
+                <div>
+                    <mat-select formControlName="genero" required>
+                        @for (genero of generos; track genero) {
+                            <mat-option [value]="genero.value">{{genero.viewValue}}</mat-option>
+                        }
+                    </mat-select>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <mat-label>Profissão</mat-label>
+                <div>
+                    <section class="example-section" [formGroup]="profissao">
+                        <p><mat-checkbox formControlName="analistaSistemas">Analista de sistemas</mat-checkbox></p>
+                        <p><mat-checkbox formControlName="engenheiro">Engenheiro</mat-checkbox></p>
+                        <p><mat-checkbox formControlName="professor">Professor</mat-checkbox></p>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" mat-button color="primary">Enviar</button>
+    <!-- </mat-form-field> -->
+    </form>
+</div>
+
+  
