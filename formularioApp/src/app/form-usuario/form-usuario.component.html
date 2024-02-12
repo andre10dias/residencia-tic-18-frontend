@@ -5,36 +5,54 @@
             <div>
                 <mat-label>Nome do usuário</mat-label>
                 <div>
-                    <input matInput formControlName="nomeUsuario" required>
+                    <input matInput formControlName="nomeUsuario"
+                        [ngClass]="{'invalid-field': form.get('nomeUsuario')?.invalid && form.get('nomeUsuario')?.touched}"
+                    >
+                    <mat-error *ngIf="!form.get('nomeUsuario')?.valid && form.get('nomeUsuario')?.touched"
+                    >Nome de usuário inválido.</mat-error>
                 </div>
             </div>
+
+            <!-- <input type="text" formControlName="teste">
+            <span 
+                *ngIf="!form.get('teste')?.valid && form.get('teste')?.touched"
+            >Teste erro</span> -->
 
             <div>
                 <mat-label>Senha</mat-label>
                 <div>
-                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha" required>
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha"
+                        [ngClass]="{'invalid-field': form.get('senha')?.invalid && form.get('senha')?.touched}"
+                    >
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
+                    <mat-error *ngIf="!form.get('senha')?.valid && form.get('senha')?.touched"
+                    >Senha inválida.</mat-error>
                 </div>
             </div>
             
             <div>
                 <mat-label>E-mail</mat-label>
                 <div>
-                    <input matInput type="email" placeholder="pat@example.com" formControlName="email" required>
-                    <!-- @if (email.invalid) {
-                        <mat-error>{{getErrorMessage()}}</mat-error>
-                    } -->
+                    <input matInput type="email" placeholder="pat@example.com" formControlName="email"
+                        [ngClass]="{'invalid-field': form.get('senha')?.invalid && form.get('senha')?.touched}"
+                    >
+                    <mat-error *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
+                    >E-mail inválido.</mat-error>
                 </div>
             </div>
         </div>
 
         <div>
             <div>
-                <mat-label>Nome Completo</mat-label>
+                <mat-label>Nome completo</mat-label>
                 <div>
-                    <input matInput formControlName="nomeCompleto" required>
+                    <input matInput formControlName="nomeCompleto" 
+                        [ngClass]="{'invalid-field': form.get('nomeCompleto')?.invalid && form.get('nomeCompleto')?.touched}"
+                    >
+                    <mat-error *ngIf="!form.get('nomeCompleto')?.valid && form.get('nomeCompleto')?.touched"
+                    >Nome inválido.</mat-error>
                 </div>
             </div>
         </div>
@@ -43,7 +61,11 @@
             <div>
                 <mat-label>Endereço</mat-label>
                 <div>
-                    <input matInput formControlName="endereco" required>
+                    <input matInput formControlName="endereco"
+                        [ngClass]="{'invalid-field': form.get('endereco')?.invalid && form.get('endereco')?.touched}"
+                    >
+                    <mat-error *ngIf="!form.get('endereco')?.valid && form.get('endereco')?.touched"
+                    >Endereço inválido.</mat-error>
                 </div>
             </div>
         </div>
@@ -53,25 +75,33 @@
                 <mat-label>Telefone</mat-label>
                 <div>
                     <span matTextPrefix>+55 &nbsp;</span>
-                    <input type="tel" matInput placeholder="(99) 9 9999-9999" formControlName="telefone" required>
+                    <input type="tel" matInput placeholder="Somente números" formControlName="telefone" 
+                        [value]="formatarTelefone()"
+                        [ngClass]="{'invalid-field': form.get('telefone')?.invalid && form.get('telefone')?.touched}"
+                    >
                     <mat-icon matSuffix>phone</mat-icon>
+                    <mat-error *ngIf="!form.get('telefone')?.valid && form.get('telefone')?.touched"
+                    >Telefone inválido.</mat-error>
                 </div>
             </div>
 
             <div>
                 <mat-label>Data de nascimento</mat-label>
                 <div>
-                    <input matInput [matDatepicker]="picker" formControlName="nascimento" required>
-                    <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                    <input matInput [matDatepicker]="picker" formControlName="nascimento"
+                        [ngClass]="{'invalid-field': form.get('nascimento')?.invalid && form.get('nascimento')?.touched}"
+                    >
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="!form.get('nascimento')?.valid && form.get('nascimento')?.touched"
+                    >Data de nascimento inválida.</mat-error>
                 </div>
             </div>
 
             <div>
                 <mat-label>Gênero</mat-label>
                 <div>
-                    <mat-select formControlName="genero" required>
+                    <mat-select formControlName="genero">
                         @for (genero of generos; track genero) {
                             <mat-option [value]="genero.value">{{genero.viewValue}}</mat-option>
                         }
@@ -84,16 +114,16 @@
             <div>
                 <mat-label>Profissão</mat-label>
                 <div>
-                    <section class="example-section" [formGroup]="profissao">
-                        <p><mat-checkbox formControlName="analistaSistemas">Analista de sistemas</mat-checkbox></p>
-                        <p><mat-checkbox formControlName="engenheiro">Engenheiro</mat-checkbox></p>
-                        <p><mat-checkbox formControlName="professor">Professor</mat-checkbox></p>
+                    <section [formGroup]="profissao">
+                        @for (profissao of profissoes; track profissao) {
+                            <p><mat-checkbox [formControlName]="profissao.value">{{profissao.viewValue}}</mat-checkbox></p>
+                        }
                     </section>
                 </div>
             </div>
         </div>
 
-        <button type="submit" mat-button color="primary">Enviar</button>
+        <button mat-button [disabled]="buttonDisabled" type="submit" color="primary">Enviar</button>
     <!-- </mat-form-field> -->
     </form>
 </div>

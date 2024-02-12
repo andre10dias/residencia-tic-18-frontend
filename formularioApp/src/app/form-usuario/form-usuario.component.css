@@ -1,3 +1,11 @@
 .mat-mdc-form-field {
     display: grid;
 }
+
+.invalid-field {
+    border: 1px solid red;
+}
+
+mat-error {
+    color: red;
+}
