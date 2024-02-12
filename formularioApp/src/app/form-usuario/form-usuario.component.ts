@@ -1,6 +1,5 @@
-import { Component, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
-import { max } from 'rxjs';
 
 @Component({
   selector: 'app-form-usuario',
@@ -22,26 +21,16 @@ export class FormUsuarioComponent {
     {value: 'professor', viewValue: 'Professor'},
   ]
   buttonDisabled: boolean = true;
-
-  today: Date = new Date();
-  day = this.today.getDay();
-  month = this.today.getMonth();
-  year = this.today.getFullYear();
   
   constructor() {
     this.bindValidator();
-
-    // const profissaoControls: { [key: string]: FormControl } = {};
-    // this.profissoes.forEach((profissao: any) => {
-    //   profissaoControls[profissao.value] = new FormControl(false);
-    // });
 
     const profissaoControls: any[] = [];
     this.profissoes.forEach((profissao: any) => {
       profissaoControls[profissao.value] = new FormControl(false);
     });
 
-    this.profissao = new FormGroup(profissaoControls, this.profissaoValidator);
+    this.profissao = new FormGroup(profissaoControls);
 
     this.form = new FormGroup({
       'nomeUsuario': new FormControl(null, [
@@ -106,22 +95,6 @@ export class FormUsuarioComponent {
     return null;
   }
 
-//   verificarProfissaoSelecionada(): boolean {
-//   for (const profissao of this.profissoes) {
-//     if (this.profissao.get(profissao.value)?.value) {
-//       return true;
-//     }
-//   }
-//   return false;
-// }
-
-// ngOnInit() {
-//   this.form.valueChanges.subscribe(() => {
-//     this.buttonDisabled = !this.form.valid || !this.verificarProfissaoSelecionada();
-//   });
-// }
-
-
   profissaoValidator(control: AbstractControl): { [key: string]: boolean } | null {
     let isValid = null;
 
@@ -158,8 +131,6 @@ export class FormUsuarioComponent {
   }
 
   onSubmit() {
-    // console.log('form: ', this.form);
-    // this.form.value.profissao = this.profissao.value;
     console.log(this.form.value);
   }
 
@@ -176,7 +147,6 @@ export class FormUsuarioComponent {
     this.nomeUsuarioValidator = this.nomeUsuarioValidator.bind(this);
     this.senhaValidator = this.senhaValidator.bind(this);
     this.nomeCompletoValidator = this.nomeCompletoValidator.bind(this);
-    this.profissaoValidator = this.profissaoValidator.bind(this);
   }
 
 }

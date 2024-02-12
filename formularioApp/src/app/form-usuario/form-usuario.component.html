@@ -75,7 +75,7 @@
                 <mat-label>Telefone</mat-label>
                 <div>
                     <span matTextPrefix>+55 &nbsp;</span>
-                    <input type="tel" matInput placeholder="Somente números" formControlName="telefone" 
+                    <input type="tel" matInput placeholder="Somente números" formControlName="telefone" maxlength="11"
                         [value]="formatarTelefone()"
                         [ngClass]="{'invalid-field': form.get('telefone')?.invalid && form.get('telefone')?.touched}"
                     >
