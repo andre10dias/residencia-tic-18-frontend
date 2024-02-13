@@ -4,12 +4,12 @@
             <div id="nome-usuario">
                 <mat-label>Nome do usuário</mat-label>
                 <div>
-                    <input matInput formControlName="nomeUsuario"
+                    <input matInput formControlName="nomeUsuario" placeholder="Nome de usuário sem espaços"
                         [ngClass]="{'invalid-field': form.get('nomeUsuario')?.invalid && form.get('nomeUsuario')?.touched}"
                     >
                     <div>
                         <mat-error *ngIf="!form.get('nomeUsuario')?.valid && form.get('nomeUsuario')?.touched"
-                        >Nome de usuário inválido.</mat-error>
+                        >Nome de usuário inválido. O nome não pode conter espaços.</mat-error>
                     </div>
                 </div>
             </div>
@@ -17,7 +17,7 @@
             <div>
                 <mat-label>Senha</mat-label>
                 <div id="senha">
-                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha"
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha" placeholder="****"
                         [ngClass]="{'invalid-field': form.get('senha')?.invalid && form.get('senha')?.touched}"
                     >
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -25,7 +25,7 @@
                     </button>
                     <div>
                         <mat-error *ngIf="!form.get('senha')?.valid && form.get('senha')?.touched"
-                        >Senha inválida.</mat-error>
+                        >Senha inválida. Mínimo de 04 caracters com pelo menos uma letra maiúscula e um caracter especial.</mat-error>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     >
                     <div>
                         <mat-error *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
-                        >E-mail inválido.</mat-error>
+                        >E-mail inválido. Digite um e-mail válido.</mat-error>
                     </div>
                 </div>
             </div>
@@ -48,12 +48,12 @@
             <div>
                 <mat-label>Nome completo</mat-label>
                 <div id="nome">
-                    <input matInput formControlName="nomeCompleto" 
+                    <input matInput formControlName="nomeCompleto" placeholder="Digite seu nome completo"
                         [ngClass]="{'invalid-field': form.get('nomeCompleto')?.invalid && form.get('nomeCompleto')?.touched}"
                     >
                     <div>
                         <mat-error *ngIf="!form.get('nomeCompleto')?.valid && form.get('nomeCompleto')?.touched"
-                        >Nome inválido.</mat-error>
+                        >Nome inválido. Digite seu nome completo.</mat-error>
                     </div>
                 </div>
             </div>
@@ -61,12 +61,12 @@
             <div>
                 <mat-label>Endereço</mat-label>
                 <div id="endereco">
-                    <input matInput formControlName="endereco"
+                    <input matInput formControlName="endereco" placeholder="Digite um endereço válido"
                         [ngClass]="{'invalid-field': form.get('endereco')?.invalid && form.get('endereco')?.touched}"
                     >
                     <div>
                         <mat-error *ngIf="!form.get('endereco')?.valid && form.get('endereco')?.touched"
-                        >Endereço inválido.</mat-error>
+                        >Endereço inválido. Digite um endereço válido.</mat-error>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                     <mat-icon matSuffix>phone</mat-icon>
                     <div>
                         <mat-error *ngIf="!form.get('telefone')?.valid && form.get('telefone')?.touched"
-                        >Telefone inválido.</mat-error>
+                        >Telefone inválido. Informe seu telefone com DDD.</mat-error>
                     </div>
                 </div>
             </div>
@@ -92,14 +92,15 @@
             <div>
                 <mat-label>Data de nascimento</mat-label>
                 <div id="nascimento">
-                    <input matInput [matDatepicker]="picker" formControlName="nascimento"
+                    <input matInput [matDatepicker]="picker" formControlName="nascimento" placeholder="Selecione uma data"
                         [ngClass]="{'invalid-field': form.get('nascimento')?.invalid && form.get('nascimento')?.touched}"
                     >
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
+                    <mat-hint>DD/MM/AAAA</mat-hint>
                     <div>
                         <mat-error *ngIf="!form.get('nascimento')?.valid && form.get('nascimento')?.touched"
-                        >Data de nascimento inválida.</mat-error>
+                        >Data de nascimento inválida. Selecione no calendário.</mat-error>
                     </div>
                 </div>
             </div>
@@ -107,7 +108,7 @@
             <div>
                 <mat-label>Gênero</mat-label>
                 <div id="genero">
-                    <mat-select formControlName="genero">
+                    <mat-select formControlName="genero" placeholder="Selecione...">
                         @for (genero of generos; track genero) {
                             <mat-option [value]="genero.value">{{genero.viewValue}}</mat-option>
                         }
@@ -135,6 +136,10 @@
             </div>
         </div>
     </form>
+
+    <div id="saida" *ngIf="saida != ''">
+        <div>{{saida}}</div>
+    </div>
 </div>
 
   

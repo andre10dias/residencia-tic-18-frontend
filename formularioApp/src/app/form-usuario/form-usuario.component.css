@@ -54,6 +54,14 @@ button:disabled {
     background-color: var(--mdc-text-button-disabled-label-text-color) !important;
 }
 
+#saida > div {
+    border: 1px solid;
+    margin: 20px;
+    height: 64px;
+    padding: 10px;
+    word-wrap: break-word;
+}
+
 #form-reactive {
     display: grid;
     grid-template-columns: 1fr;
@@ -86,7 +94,7 @@ button:disabled {
 
 @media (max-width: 500px) {
     #bloco-1, #bloco-2, #bloco-3, #bloco-4, #bloco-5 {
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
         padding-bottom: 0;
     }
 
@@ -107,5 +115,10 @@ button:disabled {
 
     #enviar {
         width: 100%;
+    }
+
+    #saida > div {
+        height: 166px;
+        width: 290px;
     }
 }

@@ -22,6 +22,7 @@ export class FormUsuarioComponent {
     {value: 'product', viewValue: 'Product owner'}
   ]
   buttonDisabled: boolean = true;
+  saida: string = '';
   
   constructor() {
     this.bindValidator();
@@ -133,6 +134,7 @@ export class FormUsuarioComponent {
 
   onSubmit() {
     console.log(this.form.value);
+    this.saida = JSON.stringify(this.form.value);
   }
 
   fieldValidator(control: AbstractControl, regex: RegExp): { [key: string]: boolean } | null {
