@@ -17,8 +17,9 @@ export class FormUsuarioComponent {
   ];
   profissoes: any[] = [
     {value: 'analista', viewValue: 'Analista de sistemas'},
-    {value: 'engenheiro', viewValue: 'Engenheiro'},
+    {value: 'cientista', viewValue: 'Cientista de dados'},
     {value: 'professor', viewValue: 'Professor'},
+    {value: 'product', viewValue: 'Product owner'}
   ]
   buttonDisabled: boolean = true;
   

@@ -1,106 +1,112 @@
 <div id="form-reactive">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <!-- <mat-form-field [formGroup]="form"  (ngSubmit)="onSubmit()"> -->
-        <div>
-            <div>
+        <div id="bloco-1">
+            <div id="nome-usuario">
                 <mat-label>Nome do usuário</mat-label>
                 <div>
                     <input matInput formControlName="nomeUsuario"
                         [ngClass]="{'invalid-field': form.get('nomeUsuario')?.invalid && form.get('nomeUsuario')?.touched}"
                     >
-                    <mat-error *ngIf="!form.get('nomeUsuario')?.valid && form.get('nomeUsuario')?.touched"
-                    >Nome de usuário inválido.</mat-error>
+                    <div>
+                        <mat-error *ngIf="!form.get('nomeUsuario')?.valid && form.get('nomeUsuario')?.touched"
+                        >Nome de usuário inválido.</mat-error>
+                    </div>
                 </div>
             </div>
 
-            <!-- <input type="text" formControlName="teste">
-            <span 
-                *ngIf="!form.get('teste')?.valid && form.get('teste')?.touched"
-            >Teste erro</span> -->
-
             <div>
                 <mat-label>Senha</mat-label>
-                <div>
+                <div id="senha">
                     <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha"
                         [ngClass]="{'invalid-field': form.get('senha')?.invalid && form.get('senha')?.touched}"
                     >
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
-                    <mat-error *ngIf="!form.get('senha')?.valid && form.get('senha')?.touched"
-                    >Senha inválida.</mat-error>
+                    <div>
+                        <mat-error *ngIf="!form.get('senha')?.valid && form.get('senha')?.touched"
+                        >Senha inválida.</mat-error>
+                    </div>
                 </div>
             </div>
             
             <div>
                 <mat-label>E-mail</mat-label>
-                <div>
+                <div id="email">
                     <input matInput type="email" placeholder="pat@example.com" formControlName="email"
                         [ngClass]="{'invalid-field': form.get('senha')?.invalid && form.get('senha')?.touched}"
                     >
-                    <mat-error *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
-                    >E-mail inválido.</mat-error>
+                    <div>
+                        <mat-error *ngIf="!form.get('email')?.valid && form.get('email')?.touched"
+                        >E-mail inválido.</mat-error>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div>
+        <div id="bloco-2">
             <div>
                 <mat-label>Nome completo</mat-label>
-                <div>
+                <div id="nome">
                     <input matInput formControlName="nomeCompleto" 
                         [ngClass]="{'invalid-field': form.get('nomeCompleto')?.invalid && form.get('nomeCompleto')?.touched}"
                     >
-                    <mat-error *ngIf="!form.get('nomeCompleto')?.valid && form.get('nomeCompleto')?.touched"
-                    >Nome inválido.</mat-error>
+                    <div>
+                        <mat-error *ngIf="!form.get('nomeCompleto')?.valid && form.get('nomeCompleto')?.touched"
+                        >Nome inválido.</mat-error>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div>
             <div>
                 <mat-label>Endereço</mat-label>
-                <div>
+                <div id="endereco">
                     <input matInput formControlName="endereco"
                         [ngClass]="{'invalid-field': form.get('endereco')?.invalid && form.get('endereco')?.touched}"
                     >
-                    <mat-error *ngIf="!form.get('endereco')?.valid && form.get('endereco')?.touched"
-                    >Endereço inválido.</mat-error>
+                    <div>
+                        <mat-error *ngIf="!form.get('endereco')?.valid && form.get('endereco')?.touched"
+                        >Endereço inválido.</mat-error>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div>
+        <div id="bloco-3">
             <div>
                 <mat-label>Telefone</mat-label>
-                <div>
+                <div id="telefone">
                     <span matTextPrefix>+55 &nbsp;</span>
                     <input type="tel" matInput placeholder="Somente números" formControlName="telefone" maxlength="11"
                         [value]="formatarTelefone()"
                         [ngClass]="{'invalid-field': form.get('telefone')?.invalid && form.get('telefone')?.touched}"
                     >
                     <mat-icon matSuffix>phone</mat-icon>
-                    <mat-error *ngIf="!form.get('telefone')?.valid && form.get('telefone')?.touched"
-                    >Telefone inválido.</mat-error>
+                    <div>
+                        <mat-error *ngIf="!form.get('telefone')?.valid && form.get('telefone')?.touched"
+                        >Telefone inválido.</mat-error>
+                    </div>
                 </div>
             </div>
 
             <div>
                 <mat-label>Data de nascimento</mat-label>
-                <div>
+                <div id="nascimento">
                     <input matInput [matDatepicker]="picker" formControlName="nascimento"
                         [ngClass]="{'invalid-field': form.get('nascimento')?.invalid && form.get('nascimento')?.touched}"
                     >
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
-                    <mat-error *ngIf="!form.get('nascimento')?.valid && form.get('nascimento')?.touched"
-                    >Data de nascimento inválida.</mat-error>
+                    <div>
+                        <mat-error *ngIf="!form.get('nascimento')?.valid && form.get('nascimento')?.touched"
+                        >Data de nascimento inválida.</mat-error>
+                    </div>
                 </div>
             </div>
 
             <div>
                 <mat-label>Gênero</mat-label>
-                <div>
+                <div id="genero">
                     <mat-select formControlName="genero">
                         @for (genero of generos; track genero) {
                             <mat-option [value]="genero.value">{{genero.viewValue}}</mat-option>
@@ -110,10 +116,10 @@
             </div>
         </div>
 
-        <div>
+        <div id="bloco-4">
             <div>
                 <mat-label>Profissão</mat-label>
-                <div>
+                <div id="profissao">
                     <section [formGroup]="profissao">
                         @for (profissao of profissoes; track profissao) {
                             <p><mat-checkbox [formControlName]="profissao.value">{{profissao.viewValue}}</mat-checkbox></p>
@@ -123,8 +129,11 @@
             </div>
         </div>
 
-        <button mat-button [disabled]="buttonDisabled" type="submit" color="primary">Enviar</button>
-    <!-- </mat-form-field> -->
+        <div id="bloco-5" class="text-left">
+            <div>
+                <button id="enviar" mat-button [disabled]="buttonDisabled" type="submit" color="primary">Enviar</button>
+            </div>
+        </div>
     </form>
 </div>
 

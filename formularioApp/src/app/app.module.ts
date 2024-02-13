@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MAT_DATE_LOCALE, provideNativeDateAdapter} from '@angular/material/core';
 
+import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
@@ -15,11 +16,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarComponent,
     FormUsuarioComponent
   ],
   imports: [
@@ -27,6 +30,7 @@ import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatToolbarModule,
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
