@@ -152,4 +152,8 @@ export class FormUsuarioComponent {
     this.nomeCompletoValidator = this.nomeCompletoValidator.bind(this);
   }
 
+  limpar() {
+    this.saida = '';
+  }
+
 }

@@ -133,6 +133,7 @@
         <div id="bloco-5" class="text-left">
             <div>
                 <button id="enviar" mat-button [disabled]="buttonDisabled" type="submit" color="primary">Enviar</button>
+                <button id="limpar" mat-button type="reset" color="primary" (click)="limpar()">Limpar</button>
             </div>
         </div>
     </form>
@@ -141,5 +142,3 @@
         <div>{{saida}}</div>
     </div>
 </div>
-
-  

@@ -42,11 +42,15 @@ mat-select {
     border-bottom: 1px solid black;
 }
 
-#enviar {
+#enviar, #limpar {
     border: 1px solid;
+    width: 150px;
+}
+
+#enviar {
     background-color: var(--mdc-text-button-label-text-color);
     color: whitesmoke !important;
-    width: 150px;
+    margin-right: 10px;
 }
 
 button:disabled {
