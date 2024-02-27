@@ -1,6 +1,6 @@
-.mat-mdc-form-field {
+/* .mat-mdc-form-field {
     display: grid;
-}
+} */
 
 .invalid-field {
     border: 1px solid red;
@@ -8,6 +8,7 @@
 
 mat-error {
     color: red;
+    font-size: small;
 }
 
 #telefone > mat-icon {
@@ -60,18 +61,33 @@ button:disabled {
 
 #saida > div {
     border: 1px solid;
-    margin: 20px;
+    word-wrap: break-word;
+}
+
+#saida > div, #saida2 > div {
+    margin: 10px;
     height: 64px;
     padding: 10px;
-    word-wrap: break-word;
+}
+
+.card, .card > mat-card-header {
+    margin-bottom: 10px;
 }
 
 #form-reactive {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 30px;
+    grid-template-rows: 1fr 122px 100%;
     background-color: whitesmoke;
     padding: 10px;
+    row-gap: 10px;
+}
+
+#form-reactive > form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 80px 80px 1fr 60px;
+    row-gap: 10px;
 }
 
 #bloco-1, #bloco-2, #bloco-3, #bloco-4, #bloco-5 {
@@ -97,6 +113,32 @@ button:disabled {
 }
 
 @media (max-width: 500px) {
+    #form-reactive {
+        grid-template-rows: 1fr 1fr 100%;
+    }
+
+    #form-reactive > form {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 332px 200px 332px 1fr 100px;
+        row-gap: 10px;
+    }
+
+    #bloco-1, #bloco-3 {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr; 
+    }
+
+    #bloco-2 {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    #bloco-4, #bloco-5 {
+        display: grid;
+        grid-template-rows: 1fr;
+    }
+
     #bloco-1, #bloco-2, #bloco-3, #bloco-4, #bloco-5 {
         grid-template-columns: 100%;
         padding-bottom: 0;
@@ -117,12 +159,13 @@ button:disabled {
         width: 80%;
     }
 
-    #enviar {
+    #enviar, #limpar {
         width: 100%;
+        margin-bottom: 10px;
     }
 
     #saida > div {
         height: 166px;
-        width: 290px;
+        width: 314px;
     }
 }

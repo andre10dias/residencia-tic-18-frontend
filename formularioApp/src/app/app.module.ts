@@ -15,6 +15,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
@@ -37,7 +39,9 @@ import { FormUsuarioComponent } from './form-usuario/form-usuario.component';
     MatButtonModule,
     MatIconModule,
     MatCheckboxModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync(),

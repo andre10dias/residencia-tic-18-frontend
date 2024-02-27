@@ -14,9 +14,9 @@
                 </div>
             </div>
 
-            <div>
+            <div id="senha">
                 <mat-label>Senha</mat-label>
-                <div id="senha">
+                <div>
                     <input matInput [type]="hide ? 'password' : 'text'" formControlName="senha" placeholder="****"
                         [ngClass]="{'invalid-field': form.get('senha')?.invalid && form.get('senha')?.touched}"
                     >
@@ -30,9 +30,9 @@
                 </div>
             </div>
             
-            <div>
+            <div id="email">
                 <mat-label>E-mail</mat-label>
-                <div id="email">
+                <div>
                     <input matInput type="email" placeholder="pat@example.com" formControlName="email"
                         [ngClass]="{'invalid-field': form.get('senha')?.invalid && form.get('senha')?.touched}"
                     >
@@ -45,9 +45,9 @@
         </div>
 
         <div id="bloco-2">
-            <div>
+            <div id="nome">
                 <mat-label>Nome completo</mat-label>
-                <div id="nome">
+                <div>
                     <input matInput formControlName="nomeCompleto" placeholder="Digite seu nome completo"
                         [ngClass]="{'invalid-field': form.get('nomeCompleto')?.invalid && form.get('nomeCompleto')?.touched}"
                     >
@@ -58,9 +58,9 @@
                 </div>
             </div>
 
-            <div>
+            <div id="endereco">
                 <mat-label>Endereço</mat-label>
-                <div id="endereco">
+                <div>
                     <input matInput formControlName="endereco" placeholder="Digite um endereço válido"
                         [ngClass]="{'invalid-field': form.get('endereco')?.invalid && form.get('endereco')?.touched}"
                     >
@@ -73,9 +73,9 @@
         </div>
 
         <div id="bloco-3">
-            <div>
+            <div id="telefone">
                 <mat-label>Telefone</mat-label>
-                <div id="telefone">
+                <div>
                     <span matTextPrefix>+55 &nbsp;</span>
                     <input type="tel" matInput placeholder="Somente números" formControlName="telefone" maxlength="11"
                         [value]="formatarTelefone()"
@@ -89,9 +89,9 @@
                 </div>
             </div>
 
-            <div>
+            <div id="nascimento">
                 <mat-label>Data de nascimento</mat-label>
-                <div id="nascimento">
+                <div>
                     <input matInput [matDatepicker]="picker" formControlName="nascimento" placeholder="Selecione uma data"
                         [ngClass]="{'invalid-field': form.get('nascimento')?.invalid && form.get('nascimento')?.touched}"
                     >
@@ -105,9 +105,9 @@
                 </div>
             </div>
 
-            <div>
+            <div id="genero">
                 <mat-label>Gênero</mat-label>
-                <div id="genero">
+                <div>
                     <mat-select formControlName="genero" placeholder="Selecione...">
                         @for (genero of generos; track genero) {
                             <mat-option [value]="genero.value">{{genero.viewValue}}</mat-option>
@@ -118,9 +118,9 @@
         </div>
 
         <div id="bloco-4">
-            <div>
+            <div id="profissao">
                 <mat-label>Profissão</mat-label>
-                <div id="profissao">
+                <div>
                     <section [formGroup]="profissao">
                         @for (profissao of profissoes; track profissao) {
                             <p><mat-checkbox [formControlName]="profissao.value">{{profissao.viewValue}}</mat-checkbox></p>
@@ -139,6 +139,76 @@
     </form>
 
     <div id="saida" *ngIf="saida != ''">
-        <div>{{saida}}</div>
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Dados Formulário</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{saida}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div id="saida2" *ngIf="showTable">
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>Ações do usuário</mat-card-title>
+              <mat-card-subtitle>Valores</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <table mat-table [dataSource]="dataSourceValor" class="mat-elevation-z8">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="dataHora">
+                      <th mat-header-cell *matHeaderCellDef> Data / Hora </th>
+                      <td mat-cell *matCellDef="let element"> {{element.dataHora | date: 'dd/MM/yyyy HH:mm'}} </td>
+                    </ng-container>
+                  
+                    <!-- pet Column -->
+                    <ng-container matColumnDef="campo">
+                      <th mat-header-cell *matHeaderCellDef> Campo </th>
+                      <td mat-cell *matCellDef="let element"> {{element.campo}} </td>
+                    </ng-container>
+                  
+                    <!-- data Column -->
+                    <ng-container matColumnDef="valor">
+                      <th mat-header-cell *matHeaderCellDef> Valor </th>
+                      <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+                    </ng-container>
+        
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsValor"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsValor;"></tr>
+                  </table>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>Ações do usuário</mat-card-title>
+              <mat-card-subtitle>Status</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <table mat-table [dataSource]="dataSourceStatus" class="mat-elevation-z8">
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="dataHora">
+                      <th mat-header-cell *matHeaderCellDef> Data / Hora </th>
+                      <td mat-cell *matCellDef="let element"> {{element.dataHora | date: 'dd/MM/yyyy HH:mm'}} </td>
+                    </ng-container>
+                  
+                    <!-- pet Column -->
+                    <ng-container matColumnDef="campo">
+                      <th mat-header-cell *matHeaderCellDef> Campo </th>
+                      <td mat-cell *matCellDef="let element"> {{element.campo}} </td>
+                    </ng-container>
+                  
+                    <!-- data Column -->
+                    <ng-container matColumnDef="status">
+                      <th mat-header-cell *matHeaderCellDef> Status </th>
+                      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+        
+                    <tr mat-header-row *matHeaderRowDef="displayedColumnsStatus"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumnsStatus;"></tr>
+                  </table>
+            </mat-card-content>
+        </mat-card>
     </div>
 </div>
